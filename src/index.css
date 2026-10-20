@@ -4,18 +4,18 @@
 
 /* 默认值与 themes.json 中的 DEFAULT_THEME_ID (candyland) 保持一致 */
 :root {
-  --theme-bg: #1a1d23;
-  --theme-fg: #f7f9fa;
-  --theme-card: #2f3436;
-  --theme-card-fg: #ffffff;
-  --theme-card-desc: #c0c5cc;
-  --theme-border: #444444;
-  --theme-primary: #ff99cc;
-  --theme-secondary: #33cc33;
-  --theme-accent: #87ceeb;
-  --theme-muted: #24272e;
-  --theme-glow-a: rgba(255, 153, 204, 0.12);
-  --theme-glow-b: rgba(135, 206, 235, 0.12);
+  --theme-bg: #f7f9fa;
+  --theme-fg: #333333;
+  --theme-card: #ffffff;
+  --theme-card-fg: #333333;
+  --theme-card-desc: #6e6e6e;
+  --theme-border: #d4d4d4;
+  --theme-primary: #ff80bf;
+  --theme-secondary: #87ceeb;
+  --theme-accent: #ffff00;
+  --theme-muted: #ddd9c4;
+  --theme-glow-a: rgba(255, 128, 191, 0.16);
+  --theme-glow-b: rgba(135, 206, 235, 0.16);
 }
 
 @layer base {
@@ -52,3 +52,64 @@
   border-color: var(--theme-primary);
   box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.15), 0 0 0 1px var(--theme-primary);
 }
+
+/* 卡片状态标签：同一色系在明暗主题下使用不同的明度，保证对比度 */
+:root,
+.light {
+  --tag-emerald-fg: #15803d;
+  --tag-emerald-bg: rgba(51, 204, 51, 0.12);
+  --tag-emerald-border: rgba(51, 204, 51, 0.38);
+  --tag-blue-fg: #0369a1;
+  --tag-blue-bg: rgba(135, 206, 235, 0.18);
+  --tag-blue-border: rgba(135, 206, 235, 0.5);
+  --tag-amber-fg: #a16207;
+  --tag-amber-bg: rgba(250, 204, 21, 0.18);
+  --tag-amber-border: rgba(250, 204, 21, 0.5);
+  --tag-purple-fg: #7e22ce;
+  --tag-purple-bg: rgba(216, 180, 254, 0.22);
+  --tag-purple-border: rgba(216, 180, 254, 0.55);
+  --tag-pink-fg: #be185d;
+  --tag-pink-bg: rgba(255, 153, 204, 0.18);
+  --tag-pink-border: rgba(255, 153, 204, 0.5);
+  --tag-zinc-fg: #52525b;
+  --tag-zinc-bg: rgba(82, 82, 91, 0.1);
+  --tag-zinc-border: rgba(82, 82, 91, 0.25);
+}
+
+.dark {
+  --tag-emerald-fg: #4ade80;
+  --tag-emerald-bg: rgba(51, 204, 51, 0.15);
+  --tag-emerald-border: rgba(51, 204, 51, 0.3);
+  --tag-blue-fg: #87ceeb;
+  --tag-blue-bg: rgba(135, 206, 235, 0.15);
+  --tag-blue-border: rgba(135, 206, 235, 0.3);
+  --tag-amber-fg: #facc15;
+  --tag-amber-bg: rgba(250, 204, 21, 0.15);
+  --tag-amber-border: rgba(250, 204, 21, 0.3);
+  --tag-purple-fg: #d8b4fe;
+  --tag-purple-bg: rgba(216, 180, 254, 0.15);
+  --tag-purple-border: rgba(216, 180, 254, 0.3);
+  --tag-pink-fg: #ff99cc;
+  --tag-pink-bg: rgba(255, 153, 204, 0.15);
+  --tag-pink-border: rgba(255, 153, 204, 0.3);
+  --tag-zinc-fg: #d4d4d8;
+  --tag-zinc-bg: rgba(68, 68, 68, 0.5);
+  --tag-zinc-border: rgba(68, 68, 68, 0.8);
+}
+
+.tag-emerald,
+.tag-blue,
+.tag-amber,
+.tag-purple,
+.tag-pink,
+.tag-zinc {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.tag-emerald { color: var(--tag-emerald-fg); background-color: var(--tag-emerald-bg); border-color: var(--tag-emerald-border); }
+.tag-blue { color: var(--tag-blue-fg); background-color: var(--tag-blue-bg); border-color: var(--tag-blue-border); }
+.tag-amber { color: var(--tag-amber-fg); background-color: var(--tag-amber-bg); border-color: var(--tag-amber-border); }
+.tag-purple { color: var(--tag-purple-fg); background-color: var(--tag-purple-bg); border-color: var(--tag-purple-border); }
+.tag-pink { color: var(--tag-pink-fg); background-color: var(--tag-pink-bg); border-color: var(--tag-pink-border); }
+.tag-zinc { color: var(--tag-zinc-fg); background-color: var(--tag-zinc-bg); border-color: var(--tag-zinc-border); }

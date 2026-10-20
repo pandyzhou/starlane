@@ -23,12 +23,12 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 const COLOR_MAP: Record<ProjectItem['tagColor'], string> = {
-  emerald: 'bg-[#33cc33]/15 text-[#33cc33] border-[#33cc33]/30',
-  blue: 'bg-[#87ceeb]/15 text-[#87ceeb] border-[#87ceeb]/30',
-  amber: 'bg-[#facc15]/15 text-[#facc15] border-[#facc15]/30',
-  purple: 'bg-[#d8b4fe]/15 text-[#d8b4fe] border-[#d8b4fe]/30',
-  pink: 'bg-[#ff99cc]/15 text-[#ff99cc] border-[#ff99cc]/30',
-  zinc: 'bg-[#444444]/50 text-zinc-300 border-[#444444]'
+  emerald: 'tag-emerald',
+  blue: 'tag-blue',
+  amber: 'tag-amber',
+  purple: 'tag-purple',
+  pink: 'tag-pink',
+  zinc: 'tag-zinc'
 };
 
 export const ProjectGrid: React.FC = () => {
