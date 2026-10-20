@@ -27,11 +27,11 @@ export const DEFAULT_ENGINE_ID = 'google';
 
 export const PROJECTS: ProjectItem[] = [
   {
-    title: "Personal Blog & Docs",
-    desc: "基于现代静态架构的个人博客与技术知识库，沉淀日常工程笔记。",
-    url: "https://github.com",
+    title: "Tendou Aris 主站",
+    desc: "个人门户与主站点，承载主要服务、博客与知识沉淀。",
+    url: "https://tendouaris.cn",
     icon: "BookOpen",
-    tag: "Production",
+    tag: "Main Site",
     tagColor: "emerald"
   },
   {
