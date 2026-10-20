@@ -27,14 +27,14 @@ export const Clock: React.FC = () => {
 
   return (
     <header className="flex flex-col items-center mb-10 text-center select-none">
-      <h1 className="text-2xl md:text-3xl font-medium tracking-widest text-[#f7f9fa] mb-3">
+      <h1 className="text-2xl md:text-3xl font-medium tracking-widest text-theme-fg mb-3">
         疏星弄
       </h1>
-      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f7f9fa] mb-2 font-mono">
+      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-theme-fg mb-2 font-mono">
         {timeStr}
       </div>
-      <div className="text-sm font-medium text-zinc-400 flex items-center gap-1.5">
-        <Calendar className="w-4 h-4 text-zinc-500" />
+      <div className="text-sm font-medium text-theme-fg/60 flex items-center gap-1.5">
+        <Calendar className="w-4 h-4 text-theme-primary" />
         <span>{dateStr}</span>
       </div>
     </header>

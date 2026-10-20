@@ -36,12 +36,12 @@ export const ProjectGrid: React.FC = () => {
     <section className="w-full">
       <div className="flex items-center justify-between mb-6 px-1">
         <div className="flex items-center gap-2">
-          <Layers className="w-4 h-4 text-[#87ceeb]" />
-          <h2 className="text-sm font-semibold tracking-wide text-[#f7f9fa] uppercase">
+          <Layers className="w-4 h-4 text-theme-primary" />
+          <h2 className="text-sm font-semibold tracking-wide text-theme-fg uppercase">
             My Projects & Workspaces
           </h2>
         </div>
-        <span className="text-xs text-zinc-400 font-mono">
+        <span className="text-xs text-theme-fg/50 font-mono">
           {PROJECTS.length} Projects
         </span>
       </div>
@@ -57,30 +57,30 @@ export const ProjectGrid: React.FC = () => {
               href={proj.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bento-card group flex flex-col justify-between p-5 rounded-2xl border border-[#444444]/70 bg-[#2f3436]/60 backdrop-blur-md relative overflow-hidden"
+              className="bento-card group flex flex-col justify-between p-5 rounded-2xl border border-theme-border/80 bg-theme-card/85 backdrop-blur-md relative overflow-hidden"
             >
               <div>
                 <div className="flex items-center justify-between mb-3.5">
-                  <div className="w-9 h-9 rounded-xl border border-[#444444] bg-[#1a1d23]/60 flex items-center justify-center text-[#ff99cc] group-hover:text-white group-hover:border-[#ff99cc]/50 group-hover:bg-[#ff99cc]/10 transition">
+                  <div className="w-9 h-9 rounded-xl border border-theme-border bg-theme-muted/50 flex items-center justify-center text-theme-primary group-hover:text-theme-primary group-hover:border-theme-primary/50 group-hover:bg-theme-primary/10 transition">
                     {ICON_MAP[proj.icon] || <Box className="w-4 h-4" />}
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${tagClass}`}>
                       {proj.tag}
                     </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#ff99cc] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-150" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-theme-fg/40 group-hover:text-theme-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-150" />
                   </div>
                 </div>
 
-                <h3 className="text-base font-semibold text-[#f7f9fa] group-hover:text-white mb-1.5 transition">
+                <h3 className="text-base font-semibold text-theme-cardFg mb-1.5 transition">
                   {proj.title}
                 </h3>
-                <p className="text-xs text-zinc-300 leading-relaxed line-clamp-2">
+                <p className="text-xs text-theme-cardDesc leading-relaxed line-clamp-2">
                   {proj.desc}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-[#444444]/40 flex items-center text-[11px] text-zinc-400 group-hover:text-[#87ceeb] transition font-mono truncate">
+              <div className="mt-4 pt-3 border-t border-theme-border/50 flex items-center text-[11px] text-theme-cardDesc/80 group-hover:text-theme-primary transition font-mono truncate">
                 <span>{displayDomain}</span>
               </div>
             </a>

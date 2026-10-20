@@ -77,26 +77,26 @@ export const SearchBar: React.FC = () => {
   return (
     <section className="w-full max-w-2xl mb-16 relative">
       <div className="relative group">
-        <div className="relative flex items-center w-full rounded-2xl border border-[#444444] bg-[#2f3436]/80 backdrop-blur-xl shadow-2xl transition duration-200 focus-within:border-[#ff99cc] focus-within:ring-4 focus-within:ring-[#ff99cc]/20">
+        <div className="relative flex items-center w-full rounded-2xl border border-theme-border bg-theme-card/85 backdrop-blur-xl shadow-2xl transition duration-200 focus-within:border-theme-primary focus-within:ring-4 focus-within:ring-theme-primary/20">
           
           {/* 搜索引擎选择器 */}
           <div className="relative" ref={dropdownRef}>
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="flex items-center gap-2 pl-4 pr-3 py-3.5 text-sm font-medium text-zinc-200 hover:text-white transition rounded-l-2xl hover:bg-[#1a1d23]/40 select-none"
+              className="flex items-center gap-2 pl-4 pr-3 py-3.5 text-sm font-medium text-theme-fg hover:opacity-90 transition rounded-l-2xl hover:bg-theme-muted/40 select-none"
             >
-              <span className="w-4 h-4 flex items-center justify-center text-[#ff99cc]">
+              <span className="w-4 h-4 flex items-center justify-center text-theme-primary">
                 {ICON_MAP[currentEngine.icon] || <Search className="w-4 h-4" />}
               </span>
               <span className="text-xs font-medium tracking-wide">{currentEngine.name}</span>
-              <ChevronDown className={`w-3.5 h-3.5 text-zinc-400 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-3.5 h-3.5 text-theme-fg/50 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
 
             {/* 下拉列表 */}
             {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 rounded-xl border border-[#444444] bg-[#2f3436]/95 backdrop-blur-xl p-1.5 shadow-2xl z-50">
-                <div className="text-[10px] font-semibold text-zinc-400 px-2 py-1 tracking-wider uppercase">
+              <div className="absolute top-full left-0 mt-2 w-48 rounded-xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 shadow-2xl z-50">
+                <div className="text-[10px] font-semibold text-theme-fg/50 px-2 py-1 tracking-wider uppercase">
                   选择搜索引擎
                 </div>
                 <div className="space-y-0.5">
@@ -113,17 +113,17 @@ export const SearchBar: React.FC = () => {
                         }}
                         className={`flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg transition ${
                           isSelected 
-                            ? 'bg-[#ff99cc]/20 text-[#ff99cc] font-medium' 
-                            : 'text-zinc-300 hover:bg-[#1a1d23]/50 hover:text-white'
+                            ? 'bg-theme-primary/15 text-theme-primary font-medium' 
+                            : 'text-theme-fg/80 hover:bg-theme-muted/50 hover:text-theme-fg'
                         }`}
                       >
                         <div className="flex items-center gap-2">
-                          <span className={isSelected ? 'text-[#ff99cc]' : 'text-zinc-400'}>
+                          <span className={isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}>
                             {ICON_MAP[engine.icon] || <Search className="w-3.5 h-3.5" />}
                           </span>
                           <span>{engine.name}</span>
                         </div>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-[#ff99cc]" />}
+                        {isSelected && <Check className="w-3.5 h-3.5 text-theme-primary" />}
                       </button>
                     );
                   })}
@@ -132,7 +132,7 @@ export const SearchBar: React.FC = () => {
             )}
           </div>
 
-          <div className="h-5 w-[1px] bg-[#444444]" />
+          <div className="h-5 w-[1px] bg-theme-border" />
 
           {/* 搜索框 */}
           <input
@@ -142,7 +142,7 @@ export const SearchBar: React.FC = () => {
             onChange={e => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
             placeholder="输入关键词，回车即搜..."
-            className="flex-1 bg-transparent px-4 py-3.5 text-sm md:text-base text-[#f7f9fa] placeholder:text-zinc-400 outline-none w-full"
+            className="flex-1 bg-transparent px-4 py-3.5 text-sm md:text-base text-theme-fg placeholder:text-theme-fg/40 outline-none w-full"
           />
 
           {/* 清除按钮 & 快捷键徽标 */}
@@ -154,13 +154,13 @@ export const SearchBar: React.FC = () => {
                   setQuery('');
                   inputRef.current?.focus();
                 }}
-                className="text-zinc-400 hover:text-white p-1 rounded-md transition"
+                className="text-theme-fg/50 hover:text-theme-fg p-1 rounded-md transition"
                 title="清空内容"
               >
                 <X className="w-4 h-4" />
               </button>
             )}
-            <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-[#444444] bg-[#1a1d23] px-1.5 py-0.5 text-[11px] font-medium text-zinc-300 select-none">
+            <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-theme-border bg-theme-muted/50 px-1.5 py-0.5 text-[11px] font-medium text-theme-fg/70 select-none">
               <span className="text-[10px]">⌘</span>K
             </kbd>
           </div>
@@ -168,7 +168,7 @@ export const SearchBar: React.FC = () => {
       </div>
 
       {/* 快捷胶囊标签 */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 mt-3 text-xs text-zinc-400">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 mt-3 text-xs text-theme-fg/70">
         {SEARCH_ENGINES.map(engine => {
           const isSelected = engine.id === currentEngine.id;
           return (
@@ -181,8 +181,8 @@ export const SearchBar: React.FC = () => {
               }}
               className={`px-2.5 py-1 rounded-full border text-[11px] transition flex items-center gap-1.5 ${
                 isSelected
-                  ? 'border-[#ff99cc] bg-[#ff99cc]/15 text-[#ff99cc] font-medium shadow-[0_0_12px_rgba(255,153,204,0.25)]'
-                  : 'border-[#444444]/60 bg-[#2f3436]/50 text-zinc-300 hover:border-[#87ceeb] hover:text-[#87ceeb]'
+                  ? 'border-theme-primary bg-theme-primary/15 text-theme-primary font-medium shadow-sm'
+                  : 'border-theme-border/70 bg-theme-card/60 text-theme-fg/70 hover:border-theme-primary/60 hover:text-theme-primary'
               }`}
             >
               <span className="scale-75">{ICON_MAP[engine.icon] || <Search className="w-3 h-3" />}</span>
