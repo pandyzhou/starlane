@@ -17,8 +17,8 @@ export const App: React.FC = () => {
       </main>
 
       {/* 页脚 */}
-      <footer className="relative z-10 w-full py-6 text-center text-xs text-zinc-600 border-t border-zinc-900">
-        <p>Built with Vite + React + Tailwind · Deployable to Cloudflare & EdgeOne Pages</p>
+      <footer className="relative z-10 w-full py-6 text-center text-xs text-zinc-600 border-t border-zinc-900 font-mono">
+        <p>疏星弄 · 几点疏星下的琴弄 · tendouaris.cn</p>
       </footer>
     </div>
   );

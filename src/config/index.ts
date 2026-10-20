@@ -27,7 +27,7 @@ export const DEFAULT_ENGINE_ID = 'google';
 
 export const PROJECTS: ProjectItem[] = [
   {
-    title: "Tendou Aris 主站",
+    title: "疏星弄 · 主站",
     desc: "个人门户与主站点，承载主要服务、博客与知识沉淀。",
     url: "https://tendouaris.cn",
     icon: "BookOpen",
