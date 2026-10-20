@@ -23,12 +23,12 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 };
 
 const COLOR_MAP: Record<ProjectItem['tagColor'], string> = {
-  emerald: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-  blue: 'bg-blue-500/10 text-blue-400 border-blue-500/20',
-  amber: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
-  purple: 'bg-purple-500/10 text-purple-400 border-purple-500/20',
-  pink: 'bg-pink-500/10 text-pink-400 border-pink-500/20',
-  zinc: 'bg-zinc-800 text-zinc-300 border-zinc-700'
+  emerald: 'bg-[#33cc33]/15 text-[#33cc33] border-[#33cc33]/30',
+  blue: 'bg-[#87ceeb]/15 text-[#87ceeb] border-[#87ceeb]/30',
+  amber: 'bg-[#facc15]/15 text-[#facc15] border-[#facc15]/30',
+  purple: 'bg-[#d8b4fe]/15 text-[#d8b4fe] border-[#d8b4fe]/30',
+  pink: 'bg-[#ff99cc]/15 text-[#ff99cc] border-[#ff99cc]/30',
+  zinc: 'bg-[#444444]/50 text-zinc-300 border-[#444444]'
 };
 
 export const ProjectGrid: React.FC = () => {
@@ -36,12 +36,12 @@ export const ProjectGrid: React.FC = () => {
     <section className="w-full">
       <div className="flex items-center justify-between mb-6 px-1">
         <div className="flex items-center gap-2">
-          <Layers className="w-4 h-4 text-zinc-400" />
-          <h2 className="text-sm font-semibold tracking-wide text-zinc-200 uppercase">
+          <Layers className="w-4 h-4 text-[#87ceeb]" />
+          <h2 className="text-sm font-semibold tracking-wide text-[#f7f9fa] uppercase">
             My Projects & Workspaces
           </h2>
         </div>
-        <span className="text-xs text-zinc-500 font-mono">
+        <span className="text-xs text-zinc-400 font-mono">
           {PROJECTS.length} Projects
         </span>
       </div>
@@ -57,30 +57,30 @@ export const ProjectGrid: React.FC = () => {
               href={proj.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="bento-card group flex flex-col justify-between p-5 rounded-2xl border border-zinc-800/80 bg-zinc-900/40 backdrop-blur-md relative overflow-hidden"
+              className="bento-card group flex flex-col justify-between p-5 rounded-2xl border border-[#444444]/70 bg-[#2f3436]/60 backdrop-blur-md relative overflow-hidden"
             >
               <div>
                 <div className="flex items-center justify-between mb-3.5">
-                  <div className="w-9 h-9 rounded-xl border border-zinc-800 bg-zinc-800/50 flex items-center justify-center text-zinc-300 group-hover:text-white group-hover:border-zinc-700 transition">
+                  <div className="w-9 h-9 rounded-xl border border-[#444444] bg-[#1a1d23]/60 flex items-center justify-center text-[#ff99cc] group-hover:text-white group-hover:border-[#ff99cc]/50 group-hover:bg-[#ff99cc]/10 transition">
                     {ICON_MAP[proj.icon] || <Box className="w-4 h-4" />}
                   </div>
                   <div className="flex items-center gap-2">
                     <span className={`text-[10px] font-medium px-2 py-0.5 rounded-full border ${tagClass}`}>
                       {proj.tag}
                     </span>
-                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-500 group-hover:text-zinc-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-150" />
+                    <ArrowUpRight className="w-3.5 h-3.5 text-zinc-400 group-hover:text-[#ff99cc] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-150" />
                   </div>
                 </div>
 
-                <h3 className="text-base font-semibold text-zinc-100 group-hover:text-white mb-1.5 transition">
+                <h3 className="text-base font-semibold text-[#f7f9fa] group-hover:text-white mb-1.5 transition">
                   {proj.title}
                 </h3>
-                <p className="text-xs text-zinc-400 leading-relaxed line-clamp-2">
+                <p className="text-xs text-zinc-300 leading-relaxed line-clamp-2">
                   {proj.desc}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-zinc-800/50 flex items-center text-[11px] text-zinc-500 group-hover:text-zinc-400 transition font-mono truncate">
+              <div className="mt-4 pt-3 border-t border-[#444444]/40 flex items-center text-[11px] text-zinc-400 group-hover:text-[#87ceeb] transition font-mono truncate">
                 <span>{displayDomain}</span>
               </div>
             </a>

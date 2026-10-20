@@ -28,14 +28,14 @@ export const Clock: React.FC = () => {
   return (
     <header className="flex flex-col items-center mb-10 text-center select-none">
       <div className="flex items-center gap-2.5 mb-3">
-        <h1 className="text-2xl md:text-3xl font-medium tracking-widest text-zinc-100">
+        <h1 className="text-2xl md:text-3xl font-medium tracking-widest text-[#f7f9fa]">
           疏星弄
         </h1>
-        <span className="text-[11px] font-mono text-zinc-500 border border-zinc-800/80 bg-zinc-900/40 rounded-full px-2.5 py-0.5">
+        <span className="text-[11px] font-mono text-[#ff99cc] border border-[#ff99cc]/30 bg-[#ff99cc]/10 rounded-full px-2.5 py-0.5">
           几点疏星下的琴弄
         </span>
       </div>
-      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-zinc-100 mb-2 font-mono">
+      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-[#f7f9fa] mb-2 font-mono">
         {timeStr}
       </div>
       <div className="text-sm font-medium text-zinc-400 flex items-center gap-1.5">

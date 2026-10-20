@@ -5,7 +5,7 @@ import { ProjectGrid } from './components/ProjectGrid';
 
 export const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#09090b] text-[#fafafa] antialiased bg-grid-pattern relative flex flex-col justify-between selection:bg-zinc-800 selection:text-zinc-100">
+    <div className="min-h-screen bg-background text-foreground antialiased bg-grid-pattern relative flex flex-col justify-between selection:bg-[#ff99cc]/30 selection:text-[#ff99cc]">
       {/* 顶部氛围微光 */}
       <div className="fixed inset-0 glow-radial pointer-events-none" />
 
@@ -17,7 +17,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* 页脚 */}
-      <footer className="relative z-10 w-full py-6 text-center text-xs text-zinc-600 border-t border-zinc-900 font-mono">
+      <footer className="relative z-10 w-full py-6 text-center text-xs text-zinc-500 border-t border-[#444444]/40 font-mono">
         <p>疏星弄 · 几点疏星下的琴弄 · tendouaris.cn</p>
       </footer>
     </div>
