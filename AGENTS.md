@@ -15,10 +15,11 @@
 - **核心数据**：`src/config/index.ts`
   - `SEARCH_ENGINES`：搜索引擎配置（Google, 百度, Bing, GitHub, DuckDuckGo, Bilibili）。
   - `PROJECTS`：导航卡片数据（标题、描述、URL、状态标签与色系）。
-- **主题系统**：`src/config/themes.ts` + `src/components/ThemeSwitcher.tsx`
-  - 集成 8 套来自 21st.dev 的社区主题（4 亮 + 4 暗）。
+- **主题系统**：`src/config/themes.json` + `src/config/themes.ts` + `src/components/ThemeSwitcher.tsx`
+  - **唯一数据源是 `themes.json`**，8 套 21st.dev 社区主题（4 亮 + 4 暗）；`themes.ts` 只做类型声明与再导出。
   - 存储键：`localStorage.getItem('shuxingnong_theme')`。
-  - 运行机制：动态更新 `:root` 的 CSS 变量（如 `--theme-bg`, `--theme-fg`, `--theme-card`, `--theme-card-fg`, `--theme-card-desc`, `--theme-border`, `--theme-primary`）。
+  - 运行机制：`vite.config.ts` 中的 `themeBootPlugin` 在构建时读取 `themes.json`，向 `index.html` 注入首屏同步脚本；该脚本在 React 挂载**之前**写入 `--theme-*` CSS 变量、`<html>` 内联背景色与 `dark`/`light` 类，消除刷新白屏闪烁。
+  - **改动主题必须编辑 `themes.json`**；`src/index.css` 的 `:root` 默认值需与 `DEFAULT_THEME_ID`（candyland）保持一致，否则首次访问仍会闪烁。
 
 ## 核心开发与布局约束
 - **保持单列居中布局**：严格维持 `Clock -> SearchBar -> ProjectGrid` 纵向居中流式排布（容器为 `max-w-7xl`、搜索框为 `max-w-3xl`）。**切勿重构为桌面端双栏或侧边栏布局**（用户已明确要求回滚并保持单列）。

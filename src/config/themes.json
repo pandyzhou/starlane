@@ -1,0 +1,170 @@
+[
+  {
+    "id": "candyland",
+    "name": "Candyland",
+    "displayName": "Candyland 糖果",
+    "type": "light",
+    "icon": "Candy",
+    "colors": {
+      "background": "#1a1d23",
+      "foreground": "#f7f9fa",
+      "card": "#2f3436",
+      "cardFg": "#ffffff",
+      "cardDesc": "#c0c5cc",
+      "border": "#444444",
+      "primary": "#ff99cc",
+      "secondary": "#33cc33",
+      "accent": "#87ceeb",
+      "muted": "#24272e",
+      "glowA": "rgba(255, 153, 204, 0.12)",
+      "glowB": "rgba(135, 206, 235, 0.12)"
+    }
+  },
+  {
+    "id": "zen-linen",
+    "name": "Zen Linen",
+    "displayName": "Zen Linen 禅意",
+    "type": "light",
+    "icon": "Sun",
+    "colors": {
+      "background": "#f5f2eb",
+      "foreground": "#1c1917",
+      "card": "#ffffff",
+      "cardFg": "#1c1917",
+      "cardDesc": "#57534e",
+      "border": "#e7e2d7",
+      "primary": "#78716c",
+      "secondary": "#d6cfbf",
+      "accent": "#a8a29e",
+      "muted": "#eae4d8",
+      "glowA": "rgba(214, 207, 191, 0.35)",
+      "glowB": "rgba(168, 162, 158, 0.25)"
+    }
+  },
+  {
+    "id": "ocean-breeze",
+    "name": "Ocean Breeze",
+    "displayName": "Ocean Breeze 海风",
+    "type": "light",
+    "icon": "Waves",
+    "colors": {
+      "background": "#f0f8ff",
+      "foreground": "#0f172a",
+      "card": "#ffffff",
+      "cardFg": "#0f172a",
+      "cardDesc": "#475569",
+      "border": "#dbeafe",
+      "primary": "#0284c7",
+      "secondary": "#38bdf8",
+      "accent": "#0ea5e9",
+      "muted": "#e0f2fe",
+      "glowA": "rgba(2, 132, 199, 0.16)",
+      "glowB": "rgba(56, 189, 248, 0.18)"
+    }
+  },
+  {
+    "id": "bubblegum",
+    "name": "Bubblegum",
+    "displayName": "Bubblegum 泡泡糖",
+    "type": "light",
+    "icon": "Smile",
+    "colors": {
+      "background": "#fff1f5",
+      "foreground": "#370e1a",
+      "card": "#ffffff",
+      "cardFg": "#370e1a",
+      "cardDesc": "#881337",
+      "border": "#fbcfe8",
+      "primary": "#ec4899",
+      "secondary": "#f472b6",
+      "accent": "#fb7185",
+      "muted": "#fce7f3",
+      "glowA": "rgba(236, 72, 153, 0.18)",
+      "glowB": "rgba(244, 114, 182, 0.15)"
+    }
+  },
+  {
+    "id": "graphite-mono",
+    "name": "Graphite Mono",
+    "displayName": "Graphite 石墨黑",
+    "type": "dark",
+    "icon": "Moon",
+    "colors": {
+      "background": "#09090b",
+      "foreground": "#fafafa",
+      "card": "#18181b",
+      "cardFg": "#fafafa",
+      "cardDesc": "#a1a1aa",
+      "border": "#27272a",
+      "primary": "#e4e4e7",
+      "secondary": "#27272a",
+      "accent": "#71717a",
+      "muted": "#27272a",
+      "glowA": "rgba(255, 255, 255, 0.05)",
+      "glowB": "rgba(120, 119, 198, 0.08)"
+    }
+  },
+  {
+    "id": "catppuccin",
+    "name": "Catppuccin",
+    "displayName": "Catppuccin 猫咖",
+    "type": "dark",
+    "icon": "Coffee",
+    "colors": {
+      "background": "#181825",
+      "foreground": "#cdd6f4",
+      "card": "#1e1e2e",
+      "cardFg": "#cdd6f4",
+      "cardDesc": "#a6adc8",
+      "border": "#313244",
+      "primary": "#cba6f7",
+      "secondary": "#585b70",
+      "accent": "#89dceb",
+      "muted": "#242438",
+      "glowA": "rgba(203, 166, 247, 0.14)",
+      "glowB": "rgba(137, 220, 235, 0.12)"
+    }
+  },
+  {
+    "id": "cosmic-night",
+    "name": "Cosmic Night",
+    "displayName": "Cosmic Night 深空",
+    "type": "dark",
+    "icon": "Sparkles",
+    "colors": {
+      "background": "#0a0a16",
+      "foreground": "#e2e2f5",
+      "card": "#131326",
+      "cardFg": "#e2e2f5",
+      "cardDesc": "#9d9dc7",
+      "border": "#262648",
+      "primary": "#a48fff",
+      "secondary": "#2d2b55",
+      "accent": "#4d4bb3",
+      "muted": "#1a1a36",
+      "glowA": "rgba(164, 143, 255, 0.16)",
+      "glowB": "rgba(77, 75, 179, 0.16)"
+    }
+  },
+  {
+    "id": "cyberpunk",
+    "name": "Cyberpunk",
+    "displayName": "Cyberpunk 赛博",
+    "type": "dark",
+    "icon": "Zap",
+    "colors": {
+      "background": "#080814",
+      "foreground": "#f3f4f6",
+      "card": "#12122b",
+      "cardFg": "#f3f4f6",
+      "cardDesc": "#99a2c2",
+      "border": "#2a2a5e",
+      "primary": "#00ffcc",
+      "secondary": "#ff007f",
+      "accent": "#ffe600",
+      "muted": "#1a1a3a",
+      "glowA": "rgba(0, 255, 204, 0.14)",
+      "glowB": "rgba(255, 0, 127, 0.14)"
+    }
+  }
+]

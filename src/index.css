@@ -2,17 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 默认值与 themes.json 中的 DEFAULT_THEME_ID (candyland) 保持一致 */
 :root {
-  --theme-bg: #f7f9fa;
-  --theme-fg: #2f3436;
-  --theme-card: #ffffff;
-  --theme-border: #e2e8f0;
-  --theme-primary: #ff80bf;
-  --theme-secondary: #38bdf8;
-  --theme-accent: #facc15;
-  --theme-muted: #f1f5f9;
-  --theme-glow-a: rgba(255, 128, 191, 0.15);
-  --theme-glow-b: rgba(56, 189, 248, 0.15);
+  --theme-bg: #1a1d23;
+  --theme-fg: #f7f9fa;
+  --theme-card: #2f3436;
+  --theme-card-fg: #ffffff;
+  --theme-card-desc: #c0c5cc;
+  --theme-border: #444444;
+  --theme-primary: #ff99cc;
+  --theme-secondary: #33cc33;
+  --theme-accent: #87ceeb;
+  --theme-muted: #24272e;
+  --theme-glow-a: rgba(255, 153, 204, 0.12);
+  --theme-glow-b: rgba(135, 206, 235, 0.12);
 }
 
 @layer base {
