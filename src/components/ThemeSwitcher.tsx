@@ -72,15 +72,15 @@ export const ThemeSwitcher: React.FC = () => {
 
       {/* 主题选择面板 */}
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-72 p-3 rounded-2xl border border-theme-border bg-theme-card/95 backdrop-blur-xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150">
-          <div className="space-y-3 max-h-[380px] overflow-y-auto pr-0.5">
+        <div className="absolute right-0 top-full mt-2 w-72 p-2.5 rounded-2xl border border-theme-border bg-theme-card/95 backdrop-blur-xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150">
+          <div className="space-y-1.5 max-h-[380px] overflow-y-auto pr-0.5">
             {/* 亮色系 */}
             <div>
-              <div className="flex items-center gap-1.5 text-[11px] font-medium text-amber-500 mb-1.5 px-1">
+              <div className="flex items-center gap-1.5 text-[11px] font-medium text-amber-500 mb-1 px-1">
                 <Sun className="w-3 h-3" />
                 <span>亮色系 (4)</span>
               </div>
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="grid grid-cols-2 gap-1">
                 {lightThemes.map(t => {
                   const active = t.id === currentThemeId;
                   return (
@@ -89,9 +89,8 @@ export const ThemeSwitcher: React.FC = () => {
                       type="button"
                       onClick={() => {
                         setCurrentThemeId(t.id);
-                        setOpen(false);
                       }}
-                      className={`flex items-center justify-between p-2 rounded-xl border text-xs text-left transition ${
+                      className={`flex items-center justify-between p-1.5 rounded-xl border text-xs text-left transition ${
                         active
                           ? 'border-theme-primary bg-theme-primary/10 font-semibold'
                           : 'border-theme-border/60 hover:border-theme-primary/50 hover:bg-theme-muted/50'
@@ -117,11 +116,11 @@ export const ThemeSwitcher: React.FC = () => {
 
             {/* 暗色系 */}
             <div>
-              <div className="flex items-center gap-1.5 text-[11px] font-medium text-indigo-400 mb-1.5 px-1">
+              <div className="flex items-center gap-1.5 text-[11px] font-medium text-indigo-400 mb-1 px-1">
                 <Moon className="w-3 h-3" />
                 <span>暗色系 (4)</span>
               </div>
-              <div className="grid grid-cols-2 gap-1.5">
+              <div className="grid grid-cols-2 gap-1">
                 {darkThemes.map(t => {
                   const active = t.id === currentThemeId;
                   return (
@@ -130,9 +129,8 @@ export const ThemeSwitcher: React.FC = () => {
                       type="button"
                       onClick={() => {
                         setCurrentThemeId(t.id);
-                        setOpen(false);
                       }}
-                      className={`flex items-center justify-between p-2 rounded-xl border text-xs text-left transition ${
+                      className={`flex items-center justify-between p-1.5 rounded-xl border text-xs text-left transition ${
                         active
                           ? 'border-theme-primary bg-theme-primary/10 font-semibold'
                           : 'border-theme-border/60 hover:border-theme-primary/50 hover:bg-theme-muted/50'

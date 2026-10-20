@@ -145,7 +145,7 @@ export const SearchBar: React.FC = () => {
             className="flex-1 bg-transparent px-4 py-3.5 text-sm md:text-base text-theme-fg placeholder:text-theme-fg/40 outline-none w-full"
           />
 
-          {/* 清除按钮 & 快捷键徽标 */}
+          {/* 清除按钮 */}
           <div className="flex items-center gap-1.5 pr-3.5">
             {query.length > 0 && (
               <button
@@ -160,9 +160,6 @@ export const SearchBar: React.FC = () => {
                 <X className="w-4 h-4" />
               </button>
             )}
-            <kbd className="hidden sm:inline-flex items-center gap-0.5 rounded border border-theme-border bg-theme-muted/50 px-1.5 py-0.5 text-[11px] font-medium text-theme-fg/70 select-none">
-              <span className="text-[10px]">⌘</span>K
-            </kbd>
           </div>
         </div>
       </div>

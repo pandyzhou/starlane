@@ -11,12 +11,12 @@ export const App: React.FC = () => {
       <div className="fixed inset-0 glow-radial pointer-events-none" />
 
       {/* 顶部工具栏（主题切换） */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-5 sm:px-8 pt-6 pb-2 flex justify-end">
+      <div className="relative z-20 w-full max-w-[96rem] mx-auto px-5 sm:px-8 pt-6 pb-2 flex justify-end">
         <ThemeSwitcher />
       </div>
 
       {/* 主工作区 */}
-      <main className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
+      <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
         <ProjectGrid />
