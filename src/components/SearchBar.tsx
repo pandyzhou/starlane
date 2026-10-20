@@ -75,7 +75,7 @@ export const SearchBar: React.FC = () => {
   };
 
   return (
-    <section className="w-full max-w-2xl mb-16 relative">
+    <section className="w-full max-w-3xl mb-16 relative">
       <div className="relative group">
         <div className="relative flex items-center w-full rounded-2xl border border-theme-border bg-theme-card/85 backdrop-blur-xl shadow-2xl transition duration-200 focus-within:border-theme-primary focus-within:ring-4 focus-within:ring-theme-primary/20">
           
