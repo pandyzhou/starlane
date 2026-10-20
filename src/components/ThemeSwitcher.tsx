@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { THEMES, ThemeItem, DEFAULT_THEME_ID } from '../config/themes';
+import { THEMES, ThemeItem, DEFAULT_THEME_ID, VAR_SUFFIX, ALPHA_KEYS, hexToRgbTriplet } from '../config/themes';
 import { Palette, Check, Sun, Moon } from 'lucide-react';
 
 export const ThemeSwitcher: React.FC = () => {
@@ -11,18 +11,15 @@ export const ThemeSwitcher: React.FC = () => {
 
   const applyTheme = (theme: ThemeItem) => {
     const root = document.documentElement;
-    root.style.setProperty('--theme-bg', theme.colors.background);
-    root.style.setProperty('--theme-fg', theme.colors.foreground);
-    root.style.setProperty('--theme-card', theme.colors.card);
-    root.style.setProperty('--theme-card-fg', theme.colors.cardFg);
-    root.style.setProperty('--theme-card-desc', theme.colors.cardDesc);
-    root.style.setProperty('--theme-border', theme.colors.border);
-    root.style.setProperty('--theme-primary', theme.colors.primary);
-    root.style.setProperty('--theme-secondary', theme.colors.secondary);
-    root.style.setProperty('--theme-accent', theme.colors.accent);
-    root.style.setProperty('--theme-muted', theme.colors.muted);
-    root.style.setProperty('--theme-glow-a', theme.colors.glowA);
-    root.style.setProperty('--theme-glow-b', theme.colors.glowB);
+    (Object.keys(VAR_SUFFIX) as Array<keyof typeof VAR_SUFFIX>).forEach(key => {
+      const suffix = VAR_SUFFIX[key];
+      const value = theme.colors[key];
+      root.style.setProperty(`--theme-${suffix}`, value);
+      // Tailwind 透明度修饰符（bg-theme-primary/15 等）依赖 -rgb 三通道变量
+      if (ALPHA_KEYS.includes(key)) {
+        root.style.setProperty(`--theme-${suffix}-rgb`, hexToRgbTriplet(value));
+      }
+    });
 
     if (theme.type === 'dark') {
       root.classList.add('dark');

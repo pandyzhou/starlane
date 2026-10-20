@@ -6,18 +6,46 @@ import { fileURLToPath } from 'node:url'
 const themesFile = fileURLToPath(new URL('./src/config/themes.json', import.meta.url))
 
 const PROP_MAP: Record<string, string> = {
-  background: '--theme-bg',
-  foreground: '--theme-fg',
-  card: '--theme-card',
-  cardFg: '--theme-card-fg',
-  cardDesc: '--theme-card-desc',
-  border: '--theme-border',
-  primary: '--theme-primary',
-  secondary: '--theme-secondary',
-  accent: '--theme-accent',
-  muted: '--theme-muted',
-  glowA: '--theme-glow-a',
-  glowB: '--theme-glow-b'
+  background: 'bg',
+  foreground: 'fg',
+  card: 'card',
+  cardFg: 'card-fg',
+  cardDesc: 'card-desc',
+  border: 'border',
+  primary: 'primary',
+  secondary: 'secondary',
+  accent: 'accent',
+  muted: 'muted',
+  glowA: 'glow-a',
+  glowB: 'glow-b'
+}
+
+/** 需要额外输出 rgb 三通道的键，供 Tailwind 透明度修饰符使用 */
+const ALPHA_KEYS = [
+  'background',
+  'foreground',
+  'card',
+  'cardFg',
+  'cardDesc',
+  'border',
+  'primary',
+  'secondary',
+  'accent',
+  'muted'
+]
+
+function hexToRgbTriplet(hex: string): string {
+  const raw = String(hex).replace('#', '').trim()
+  const full =
+    raw.length === 3
+      ? raw
+          .split('')
+          .map((c) => c + c)
+          .join('')
+      : raw
+  const n = parseInt(full, 16)
+  if (Number.isNaN(n)) return '0 0 0'
+  return `${(n >> 16) & 255} ${(n >> 8) & 255} ${n & 255}`
 }
 
 /**
@@ -35,10 +63,17 @@ function themeBootPlugin(): Plugin {
       }>
       const map = themes
         .map((t) => {
-          const varEntries = Object.entries(t.colors)
-            .map(([k, v]) => `${JSON.stringify(PROP_MAP[k] || ('--theme-' + k))}:${JSON.stringify(v)}`)
-            .join(',')
-          return `${JSON.stringify(t.id)}:[${JSON.stringify(t.type)},{${varEntries}}]`
+          const entries: string[] = []
+          for (const [k, v] of Object.entries(t.colors)) {
+            const suffix = PROP_MAP[k] || '--theme-' + k
+            entries.push(`${JSON.stringify('--theme-' + suffix)}:${JSON.stringify(v)}`)
+            if (ALPHA_KEYS.includes(k)) {
+              entries.push(
+                `${JSON.stringify('--theme-' + suffix + '-rgb')}:${JSON.stringify(hexToRgbTriplet(v))}`
+              )
+            }
+          }
+          return `${JSON.stringify(t.id)}:[${JSON.stringify(t.type)},{${entries.join(',')}}]`
         })
         .join(',')
 

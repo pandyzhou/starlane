@@ -19,7 +19,8 @@
   - **唯一数据源是 `themes.json`**，8 套 21st.dev 社区主题（4 亮 + 4 暗）；`themes.ts` 只做类型声明与再导出。
   - 存储键：`localStorage.getItem('shuxingnong_theme')`。
   - 运行机制：`vite.config.ts` 中的 `themeBootPlugin` 在构建时读取 `themes.json`，向 `index.html` 注入首屏同步脚本；该脚本在 React 挂载**之前**写入 `--theme-*` CSS 变量、`<html>` 内联背景色与 `dark`/`light` 类，消除刷新白屏闪烁。
-  - **改动主题必须编辑 `themes.json`**；`src/index.css` 的 `:root` 默认值需与 `DEFAULT_THEME_ID`（candyland）保持一致，否则首次访问仍会闪烁。
+  - **每个颜色同时输出 `--theme-xxx`（hex）和 `--theme-xxx-rgb`（"r g b" 三通道）**。`tailwind.config.js` 使用 `rgb(var(--theme-xxx-rgb) / <alpha-value>)` 形式，这是 Tailwind 透明度修饰符（`bg-theme-primary/15`、`focus-within:ring-theme-primary/20` 等）生效的前提；若直接写 `var(--theme-xxx)`，所有带 `/NN` 的类都不会生成，ring 会退回默认蓝色。
+  - **改动主题必须编辑 `themes.json`**；`src/index.css` 的 `:root` 默认值（含 `-rgb` 三通道）需与 `DEFAULT_THEME_ID`（candyland）保持一致，否则首次访问仍会闪烁。
 
 ## 核心开发与布局约束
 - **保持单列居中布局**：严格维持 `Clock -> SearchBar -> ProjectGrid` 纵向居中流式排布（容器为 `max-w-7xl`、搜索框为 `max-w-3xl`）。**切勿重构为桌面端双栏或侧边栏布局**（用户已明确要求回滚并保持单列）。
