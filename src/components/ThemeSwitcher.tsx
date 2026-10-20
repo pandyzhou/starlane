@@ -73,11 +73,6 @@ export const ThemeSwitcher: React.FC = () => {
       {/* 主题选择面板 */}
       {open && (
         <div className="absolute right-0 top-full mt-2 w-72 p-3 rounded-2xl border border-theme-border bg-theme-card/95 backdrop-blur-xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150">
-          <div className="flex items-center justify-between pb-2 mb-2 border-b border-theme-border">
-            <span className="text-xs font-semibold text-theme-fg">21st.dev 精选主题</span>
-            <span className="text-[10px] text-zinc-500 font-mono">8 热门方案</span>
-          </div>
-
           <div className="space-y-3 max-h-[380px] overflow-y-auto pr-0.5">
             {/* 亮色系 */}
             <div>
