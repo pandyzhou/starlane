@@ -18,7 +18,7 @@ export const App: React.FC = () => {
 
       {/* 页脚 */}
       <footer className="relative z-10 w-full py-6 text-center text-xs text-zinc-500 border-t border-[#444444]/40 font-mono">
-        <p>疏星弄 · 几点疏星下的琴弄 · tendouaris.cn</p>
+        <p>疏星弄 · tendouaris.cn</p>
       </footer>
     </div>
   );
