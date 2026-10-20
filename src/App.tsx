@@ -24,7 +24,7 @@ export const App: React.FC = () => {
 
       {/* 页脚 */}
       <footer className="relative z-10 w-full py-6 text-center text-xs text-theme-fg/50 border-t border-theme-border/50 font-mono">
-        <p>疏星弄 · tendouaris.cn</p>
+        <p>疏星弄</p>
       </footer>
     </div>
   );
