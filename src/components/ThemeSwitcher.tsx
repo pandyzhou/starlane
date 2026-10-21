@@ -11,6 +11,7 @@ export const ThemeSwitcher: React.FC = () => {
 
   const applyTheme = (theme: ThemeItem) => {
     const root = document.documentElement;
+    root.classList.add('theme-switching');
     (Object.keys(VAR_SUFFIX) as Array<keyof typeof VAR_SUFFIX>).forEach(key => {
       const suffix = VAR_SUFFIX[key];
       const value = theme.colors[key];
@@ -28,6 +29,11 @@ export const ThemeSwitcher: React.FC = () => {
       root.classList.add('light');
       root.classList.remove('dark');
     }
+
+    // 下一帧恢复过渡，避免瞬时变色被 transition 拉长
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => root.classList.remove('theme-switching'));
+    });
   };
 
   useEffect(() => {
