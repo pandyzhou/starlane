@@ -27,6 +27,3 @@
 - **保持单列居中布局**：严格维持 `Clock -> SearchBar -> ProjectGrid` 纵向居中流式排布（容器为 `max-w-7xl`、搜索框为 `max-w-3xl`）。**切勿重构为桌面端双栏或侧边栏布局**（用户已明确要求回滚并保持单列）。
 - **严禁硬编码颜色**：组件内禁止使用 `text-white`, `text-black`, `bg-zinc-900` 等静态色彩类。必须使用动态语义类（`bg-theme-bg`, `text-theme-fg`, `bg-theme-card`, `text-theme-cardFg`, `text-theme-cardDesc`, `border-theme-border`, `text-theme-primary` 等），否则会导致亮色/暗色主题切换时文字对比度失效。
 - **卡片网格规范**：保持 `sm:grid-cols-2 lg:grid-cols-3 gap-4`，确保 6 个项目卡片在桌面端稳定呈现 2 行 3 列。
-
-## 外部与辅助工具
-- `register_21st.py`：21st.dev 自动注册与邮箱激活脚本。依赖本地 `http://127.0.0.1:5073`（Turnstile Solver 服务）与 `https://inbucket.c5mc.cn`。

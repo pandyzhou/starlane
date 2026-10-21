@@ -21,6 +21,9 @@ pnpm-debug.log*
 *.sw?
 .DS_Store
 
+# Local-only registration helper (holds third-party signup automation)
+register_21st.py
+
 # Environment files
 .env
 .env.*
