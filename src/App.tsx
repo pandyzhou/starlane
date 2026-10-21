@@ -1,8 +1,20 @@
 import React from 'react';
+import { BookOpen, Bot, Box, Cloud, Mail, ShieldCheck, Sparkles } from 'lucide-react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ProjectGrid } from './components/ProjectGrid';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
+import { AnimatedDock } from './components/ui/animated-dock';
+import { PROJECTS } from './config';
+
+const DOCK_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
+  BookOpen,
+  Bot,
+  ShieldCheck,
+  Mail,
+  Cloud,
+  Sparkles,
+};
 
 export const App: React.FC = () => {
   return (
@@ -20,6 +32,17 @@ export const App: React.FC = () => {
         <Clock />
         <SearchBar />
         <ProjectGrid />
+        <AnimatedDock
+          className="mt-16 mb-4"
+          items={PROJECTS.map((proj) => {
+            const Icon = DOCK_ICONS[proj.icon] || Box;
+            return {
+              link: proj.url,
+              target: '_blank',
+              Icon: <Icon className="w-5 h-5" />,
+            };
+          })}
+        />
       </main>
     </div>
   );

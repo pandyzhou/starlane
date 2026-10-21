@@ -1,0 +1,95 @@
+import React, { useRef } from 'react';
+import type { ClassValue } from 'clsx';
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+  type MotionValue,
+} from 'motion/react';
+
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+
+export interface DockItemData {
+  link: string;
+  Icon: React.ReactNode;
+  target?: string;
+}
+
+export interface AnimatedDockProps {
+  className?: string;
+  items: DockItemData[];
+}
+
+export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
+  const mouseX = useMotionValue(Infinity);
+
+  return (
+    <motion.div
+      onMouseMove={(e) => mouseX.set(e.pageX)}
+      onMouseLeave={() => mouseX.set(Infinity)}
+      className={cn(
+        'mx-auto flex h-16 items-end gap-3 sm:gap-4 rounded-2xl border border-theme-border bg-theme-card/70 px-4 pb-3 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.25)] backdrop-blur-xl',
+        className
+      )}
+    >
+      {items.map((item, index) => (
+        <DockItem key={index} mouseX={mouseX}>
+          <a
+            href={item.link}
+            target={item.target}
+            rel="noopener noreferrer"
+            className="flex h-full w-full grow items-center justify-center text-theme-primary"
+          >
+            {item.Icon}
+          </a>
+        </DockItem>
+      ))}
+    </motion.div>
+  );
+};
+
+interface DockItemProps {
+  mouseX: MotionValue<number>;
+  children: React.ReactNode;
+}
+
+export const DockItem = ({ mouseX, children }: DockItemProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const distance = useTransform(mouseX, (val) => {
+    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
+    return val - bounds.x - bounds.width / 2;
+  });
+
+  const widthSync = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
+  const width = useSpring(widthSync, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
+
+  const iconScale = useTransform(width, [40, 80], [1, 1.5]);
+  const iconSpring = useSpring(iconScale, {
+    mass: 0.1,
+    stiffness: 150,
+    damping: 12,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ width }}
+      className="flex aspect-square w-10 items-center justify-center rounded-full border border-theme-border bg-theme-card text-theme-primary"
+    >
+      <motion.div
+        style={{ scale: iconSpring }}
+        className="flex h-full w-full grow items-center justify-center"
+      >
+        {children}
+      </motion.div>
+    </motion.div>
+  );
+};
