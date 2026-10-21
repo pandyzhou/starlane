@@ -75,7 +75,7 @@ export const ThemeSwitcher: React.FC = () => {
 
       {/* 主题选择面板 */}
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-72 p-2.5 rounded-2xl border border-theme-border bg-theme-card/95 backdrop-blur-xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150">
+        <div className="absolute right-0 top-full mt-2 w-32 max-w-[calc(100vw-2rem)] p-2 rounded-2xl border border-theme-border bg-theme-card/95 backdrop-blur-xl shadow-2xl z-50 animate-in fade-in zoom-in-95 duration-150 sm:w-72 sm:p-2.5">
           <div className="space-y-1.5 max-h-[380px] overflow-y-auto pr-0.5">
             {/* 亮色系 */}
             <div>

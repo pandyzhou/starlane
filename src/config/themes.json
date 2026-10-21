@@ -1,8 +1,8 @@
 [
   {
     "id": "candyland",
-    "name": "Candyland",
-    "displayName": "Candyland 糖果",
+    "name": "糖果乐园",
+    "displayName": "糖果乐园",
     "type": "light",
     "icon": "Candy",
     "colors": {
@@ -22,8 +22,8 @@
   },
   {
     "id": "zen-linen",
-    "name": "Zen Linen",
-    "displayName": "Zen Linen 禅意",
+    "name": "禅意亚麻",
+    "displayName": "禅意亚麻",
     "type": "light",
     "icon": "Sun",
     "colors": {
@@ -43,8 +43,8 @@
   },
   {
     "id": "ocean-breeze",
-    "name": "Ocean Breeze",
-    "displayName": "Ocean Breeze 海风",
+    "name": "海风",
+    "displayName": "海风",
     "type": "light",
     "icon": "Waves",
     "colors": {
@@ -64,8 +64,8 @@
   },
   {
     "id": "bubblegum",
-    "name": "Bubblegum",
-    "displayName": "Bubblegum 泡泡糖",
+    "name": "泡泡糖",
+    "displayName": "泡泡糖",
     "type": "light",
     "icon": "Smile",
     "colors": {
@@ -85,8 +85,8 @@
   },
   {
     "id": "graphite-mono",
-    "name": "Graphite Mono",
-    "displayName": "Graphite 石墨黑",
+    "name": "石墨黑",
+    "displayName": "石墨黑",
     "type": "dark",
     "icon": "Moon",
     "colors": {
@@ -106,8 +106,8 @@
   },
   {
     "id": "catppuccin",
-    "name": "Catppuccin",
-    "displayName": "Catppuccin 猫咖",
+    "name": "猫咖",
+    "displayName": "猫咖",
     "type": "dark",
     "icon": "Coffee",
     "colors": {
@@ -127,8 +127,8 @@
   },
   {
     "id": "cosmic-night",
-    "name": "Cosmic Night",
-    "displayName": "Cosmic Night 深空",
+    "name": "深空夜",
+    "displayName": "深空夜",
     "type": "dark",
     "icon": "Sparkles",
     "colors": {
@@ -148,8 +148,8 @@
   },
   {
     "id": "cyberpunk",
-    "name": "Cyberpunk",
-    "displayName": "Cyberpunk 赛博",
+    "name": "赛博朋克",
+    "displayName": "赛博朋克",
     "type": "dark",
     "icon": "Zap",
     "colors": {
