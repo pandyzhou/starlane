@@ -34,16 +34,13 @@ const COLOR_MAP: Record<ProjectItem['tagColor'], string> = {
 export const ProjectGrid: React.FC = () => {
   return (
     <section className="w-full">
-      <div className="flex items-center justify-between mb-6 px-1">
+      <div className="flex items-center mb-6 px-1">
         <div className="flex items-center gap-2">
           <Layers className="w-4 h-4 text-theme-primary" />
           <h2 className="text-sm font-semibold tracking-wide text-theme-fg uppercase">
             My Projects & Workspaces
           </h2>
         </div>
-        <span className="text-xs text-theme-fg/50 font-mono">
-          {PROJECTS.length} Projects
-        </span>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
