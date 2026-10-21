@@ -3,6 +3,7 @@ import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
+import { AuroraBackground } from './components/ui/aurora-background';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg className={className} viewBox="2 2 20 20" fill="currentColor">
@@ -41,6 +42,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-theme-bg text-theme-fg antialiased bg-grid-pattern relative flex flex-col justify-between selection:bg-theme-primary/30 selection:text-theme-primary">
       {/* 顶部氛围微光 */}
+      <AuroraBackground />
       <div className="fixed inset-0 glow-radial pointer-events-none" />
 
       {/* 顶部工具栏（主题切换） */}
