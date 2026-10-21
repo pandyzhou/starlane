@@ -1,6 +1,7 @@
 import React from 'react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
+import { ExcalidrawCard } from './components/ExcalidrawCard';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
 import { AuroraBackground } from './components/ui/aurora-background';
@@ -54,7 +55,8 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <AnimatedDock className="mt-16 mb-4" items={DOCK_ITEMS} />
+        <ExcalidrawCard />
+        <AnimatedDock className="mt-14 mb-4" items={DOCK_ITEMS} />
       </main>
     </div>
   );
