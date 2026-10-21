@@ -77,7 +77,7 @@ export const ThemeSwitcher: React.FC = () => {
                 <Sun className="w-3 h-3" />
                 <span>亮色系 (4)</span>
               </div>
-              <div className="grid grid-cols-2 gap-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                 {lightThemes.map(t => {
                   const active = t.id === currentThemeId;
                   return (
@@ -117,7 +117,7 @@ export const ThemeSwitcher: React.FC = () => {
                 <Moon className="w-3 h-3" />
                 <span>暗色系 (4)</span>
               </div>
-              <div className="grid grid-cols-2 gap-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                 {darkThemes.map(t => {
                   const active = t.id === currentThemeId;
                   return (
