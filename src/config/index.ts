@@ -5,15 +5,6 @@ export interface SearchEngine {
   url: string;
 }
 
-export interface ProjectItem {
-  title: string;
-  desc: string;
-  url: string;
-  icon: string;
-  tag: string;
-  tagColor: 'emerald' | 'blue' | 'amber' | 'purple' | 'pink' | 'zinc';
-}
-
 export const SEARCH_ENGINES: SearchEngine[] = [
   { id: 'google', name: 'Google', icon: 'Google', url: 'https://www.google.com/search?q=' },
   { id: 'baidu', name: '百度', icon: 'Baidu', url: 'https://www.baidu.com/s?wd=' },
@@ -24,54 +15,3 @@ export const SEARCH_ENGINES: SearchEngine[] = [
 ];
 
 export const DEFAULT_ENGINE_ID = 'google';
-
-export const PROJECTS: ProjectItem[] = [
-  {
-    title: "疏星弄 · 主站",
-    desc: "个人门户与主站点，承载主要服务、博客与知识沉淀。",
-    url: "https://tendouaris.cn",
-    icon: "BookOpen",
-    tag: "Main Site",
-    tagColor: "emerald"
-  },
-  {
-    title: "AI Agent Workspace",
-    desc: "自动化工作流与智能体中控服务，支持多端自动化调度。",
-    url: "https://github.com",
-    icon: "Bot",
-    tag: "Active",
-    tagColor: "blue"
-  },
-  {
-    title: "Turnstile Solver API",
-    desc: "基于 Camoufox 的人机验证自动求解后端，提供自动化 Token 接口。",
-    url: "http://127.0.0.1:5073",
-    icon: "ShieldCheck",
-    tag: "Local Service",
-    tagColor: "amber"
-  },
-  {
-    title: "Inbucket Mailbox",
-    desc: "轻量级临时邮件与捕获服务，用于开发调试与自动化测试。",
-    url: "https://inbucket.c5mc.cn/monitor",
-    icon: "Mail",
-    tag: "Tool",
-    tagColor: "purple"
-  },
-  {
-    title: "Cloud Services Console",
-    desc: "云端基础设施、边缘计算网络及 Pages 静态托管控制面板。",
-    url: "https://dash.cloudflare.com",
-    icon: "Cloud",
-    tag: "Infra",
-    tagColor: "zinc"
-  },
-  {
-    title: "UI Design Inspiration",
-    desc: "21st.dev 精选 React & Tailwind 设计工程组件与模板库。",
-    url: "https://21st.dev",
-    icon: "Sparkles",
-    tag: "Design",
-    tagColor: "pink"
-  }
-];

@@ -16,6 +16,7 @@ export interface DockItemData {
   link: string;
   Icon: React.ReactNode;
   target?: string;
+  bg?: string;
 }
 
 export interface AnimatedDockProps {
@@ -36,12 +37,12 @@ export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
       )}
     >
       {items.map((item, index) => (
-        <DockItem key={index} mouseX={mouseX}>
+        <DockItem key={index} mouseX={mouseX} bg={item.bg}>
           <a
             href={item.link}
             target={item.target}
             rel="noopener noreferrer"
-            className="flex h-full w-full grow items-center justify-center text-theme-primary"
+            className="flex h-full w-full grow items-center justify-center text-white"
           >
             {item.Icon}
           </a>
@@ -54,9 +55,10 @@ export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
 interface DockItemProps {
   mouseX: MotionValue<number>;
   children: React.ReactNode;
+  bg?: string;
 }
 
-export const DockItem = ({ mouseX, children }: DockItemProps) => {
+export const DockItem = ({ mouseX, bg, children }: DockItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const distance = useTransform(mouseX, (val) => {
@@ -82,7 +84,10 @@ export const DockItem = ({ mouseX, children }: DockItemProps) => {
     <motion.div
       ref={ref}
       style={{ width }}
-      className="flex aspect-square w-10 items-center justify-center rounded-full border border-theme-border bg-theme-card text-theme-primary"
+      className={cn(
+        'flex aspect-square w-10 items-center justify-center rounded-[0.9rem] bg-theme-fg',
+        bg
+      )}
     >
       <motion.div
         style={{ scale: iconSpring }}
