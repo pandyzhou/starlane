@@ -55,7 +55,7 @@ export const LiquidCard: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
       data-slot="card"
       style={{ backdropFilter: 'url("#container-glass")' }}
       className={cn(
-        'flex flex-col gap-6 rounded-xl border border-theme-border/70 bg-transparent py-6 text-theme-cardFg transition-all',
+        'flex flex-col gap-6 rounded-xl border border-theme-border/70 bg-theme-card/55 text-theme-cardFg backdrop-blur-md transition-all',
         CARD_SHADOW,
         CARD_SHADOW_DARK,
         className
