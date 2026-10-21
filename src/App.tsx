@@ -21,11 +21,6 @@ export const App: React.FC = () => {
         <SearchBar />
         <ProjectGrid />
       </main>
-
-      {/* 页脚 */}
-      <footer className="relative z-10 w-full py-6 text-center text-xs text-theme-fg/50 border-t border-theme-border/50 font-mono">
-        <p>疏星弄</p>
-      </footer>
     </div>
   );
 };
