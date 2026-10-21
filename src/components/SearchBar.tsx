@@ -3,7 +3,6 @@ import { SearchEngine, SEARCH_ENGINES, DEFAULT_ENGINE_ID } from '../config';
 import { 
   Search, 
   ChevronDown, 
-  Check, 
   X 
 } from 'lucide-react';
 
@@ -106,8 +105,8 @@ export const SearchBar: React.FC = () => {
 
             {/* 下拉列表 */}
             {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 rounded-xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 z-50">
-                <div className="text-[10px] font-semibold text-theme-fg/50 px-2 py-1 tracking-wider uppercase">
+              <div className="absolute top-full left-0 mt-2 w-[7.25rem] rounded-xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 z-50">
+                <div className="text-[10px] font-semibold text-theme-fg/50 px-1 py-1 tracking-wider uppercase">
                   选择搜索引擎
                 </div>
                 <div className="space-y-0.5">
@@ -122,19 +121,18 @@ export const SearchBar: React.FC = () => {
                           setDropdownOpen(false);
                           inputRef.current?.focus();
                         }}
-                        className={`flex items-center justify-between w-full px-2.5 py-1.5 text-xs rounded-lg transition ${
+                        className={`flex items-center w-full px-1 py-1.5 text-xs rounded-lg transition ${
                           isSelected 
                             ? 'bg-theme-primary/15 text-theme-primary font-medium' 
                             : 'text-theme-fg/80 hover:bg-theme-primary/10 hover:text-theme-fg'
                         }`}
                       >
-                        <div className="flex items-center gap-2">
-                          <span className={isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}>
-                            {ICON_MAP[engine.icon] || <Search className="w-3.5 h-3.5" />}
+                        <div className="flex items-center gap-1.5 min-w-0">
+                          <span className={`w-3 h-3 shrink-0 flex items-center justify-center [&>svg]:w-3 [&>svg]:h-3 ${isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}`}>
+                            {ICON_MAP[engine.icon] || <Search className="w-3 h-3" />}
                           </span>
-                          <span>{engine.name}</span>
+                          <span className="truncate">{engine.name}</span>
                         </div>
-                        {isSelected && <Check className="w-3.5 h-3.5 text-theme-primary" />}
                       </button>
                     );
                   })}
