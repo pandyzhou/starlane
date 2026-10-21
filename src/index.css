@@ -28,12 +28,6 @@
   --theme-glow-a: rgba(255, 128, 191, 0.16);
   --theme-glow-b: rgba(135, 206, 235, 0.16);
 
-  /* 页面背景的柔光层：玉色基色，明暗各一套基调 */
-  --pattern-sky-base: #cfe9f0;
-  --pattern-sky-1: rgba(238, 246, 227, 1);
-  --pattern-sky-2: rgba(183, 217, 142, 1);
-  --pattern-sky-3: rgba(127, 191, 154, 1);
-  --pattern-sky-4: rgba(207, 233, 240, 1);
 }
 
 
@@ -103,11 +97,6 @@
 }
 
 .dark {
-  --pattern-sky-base: #101d21;
-  --pattern-sky-1: rgba(216, 234, 220, 0.5);
-  --pattern-sky-2: rgba(122, 162, 96, 0.45);
-  --pattern-sky-3: rgba(74, 130, 100, 0.45);
-  --pattern-sky-4: rgba(158, 194, 203, 0.4);
   --tag-emerald-fg: #4ade80;
   --tag-emerald-bg: rgba(51, 204, 51, 0.15);
   --tag-emerald-border: rgba(51, 204, 51, 0.3);
@@ -145,20 +134,3 @@
 .tag-pink { color: var(--tag-pink-fg); background-color: var(--tag-pink-bg); border-color: var(--tag-pink-border); }
 .tag-zinc { color: var(--tag-zinc-fg); background-color: var(--tag-zinc-bg); border-color: var(--tag-zinc-border); }
 
-/* 把各主题的主色/次色混进背景，让 8 套主题的背景互不相同 */
-@supports (color: color-mix(in srgb, red, blue)) {
-  :root {
-    --pattern-sky-base: color-mix(in srgb, #cfe9f0 86%, var(--theme-primary));
-    --pattern-sky-1: color-mix(in srgb, #eef6e3 84%, var(--theme-primary));
-    --pattern-sky-2: color-mix(in srgb, #b7d98e 78%, var(--theme-secondary));
-    --pattern-sky-3: color-mix(in srgb, #7fbf9a 72%, var(--theme-primary));
-    --pattern-sky-4: color-mix(in srgb, #cfe9f0 82%, var(--theme-secondary));
-  }
-  .dark {
-    --pattern-sky-base: color-mix(in srgb, #101d21 82%, var(--theme-primary));
-    --pattern-sky-1: color-mix(in srgb, #d8eadc 60%, var(--theme-primary));
-    --pattern-sky-2: color-mix(in srgb, #7aa260 55%, var(--theme-secondary));
-    --pattern-sky-3: color-mix(in srgb, #4a8264 55%, var(--theme-primary));
-    --pattern-sky-4: color-mix(in srgb, #9ec2cb 50%, var(--theme-secondary));
-  }
-}

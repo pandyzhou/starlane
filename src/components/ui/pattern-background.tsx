@@ -1,24 +1,9 @@
 import React from 'react';
 
 export const PatternBackground: React.FC = () => (
-  <div
-    aria-hidden="true"
-    className="pointer-events-none fixed inset-0 overflow-hidden"
-    style={{ containerType: 'size' }}
-  >
-    <div
-      className="absolute"
-      style={{
-        inset: '-0.8cqmin',
-        filter: 'blur(0.4cqmin)',
-        backgroundColor: 'var(--pattern-sky-base)',
-        backgroundImage: `
-          radial-gradient(circle at 65.34% 44.62%, var(--pattern-sky-1) 0%, transparent 34.1%),
-          radial-gradient(circle at 28.07% 74.48%, var(--pattern-sky-2) 0%, transparent 45.65%),
-          radial-gradient(circle at 52.42% 19.94%, var(--pattern-sky-3) 0%, transparent 57.55%),
-          radial-gradient(circle at 80.31% 84.47%, var(--pattern-sky-4) 0%, transparent 69.1%)
-        `,
-      }}
-    />
+  <div className="pointer-events-none fixed inset-0 overflow-hidden bg-theme-bg">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_65%_at_50%_105%,rgb(var(--theme-primary-rgb)/0.5),transparent_72%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_45%_45%_at_50%_100%,rgb(var(--theme-secondary-rgb)/0.28),transparent_70%)]" />
+    <div className="absolute inset-0 dark:bg-[linear-gradient(to_bottom,rgba(0,0,0,0.85),transparent_65%)]" />
   </div>
 );
