@@ -5,7 +5,7 @@ import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
 import { PatternBackground } from './components/ui/pattern-background';
-import { ImageCard } from './components/ui/image-card';
+import { GlowCard } from './components/ui/glow-card';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg className={className} viewBox="2 2 20 20" fill="currentColor">
@@ -56,19 +56,17 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
-          <ImageCard
+        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
+          <GlowCard
             href="https://excalidraw.com"
-            image="./cards/excalidraw.webp"
-            icon={<Pencil className="h-4 w-4" />}
+            icon={<Pencil className="h-5 w-5" />}
             title="Excalidraw"
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
           />
-          <ImageCard
+          <GlowCard
             href="https://www.luogu.com.cn/"
-            image="./cards/luogu.webp"
-            icon={<Binary className="h-4 w-4" />}
+            icon={<Binary className="h-5 w-5" />}
             title="洛谷"
             desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
             domain="luogu.com.cn"
