@@ -5,7 +5,7 @@ import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
 import { PatternBackground } from './components/ui/pattern-background';
-import { FolderCard } from './components/ui/folder-card';
+import { NeonFolderCard } from './components/ui/neon-folder-card';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg className={className} viewBox="2 2 20 20" fill="currentColor">
@@ -57,14 +57,14 @@ export const App: React.FC = () => {
         <Clock />
         <SearchBar />
         <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
-          <FolderCard
+          <NeonFolderCard
             href="https://excalidraw.com"
             icon={<Pencil className="h-5 w-5" />}
             title="Excalidraw"
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
           />
-          <FolderCard
+          <NeonFolderCard
             href="https://www.luogu.com.cn/"
             icon={<Binary className="h-5 w-5" />}
             title="洛谷"
