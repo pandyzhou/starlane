@@ -163,31 +163,6 @@ export const SearchBar: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* 快捷胶囊标签 */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 mt-3 text-xs text-theme-fg/70">
-        {SEARCH_ENGINES.map(engine => {
-          const isSelected = engine.id === currentEngine.id;
-          return (
-            <button
-              key={engine.id}
-              type="button"
-              onClick={() => {
-                setCurrentEngine(engine);
-                inputRef.current?.focus();
-              }}
-              className={`px-2.5 py-1 rounded-full border text-[11px] transition flex items-center gap-1.5 ${
-                isSelected
-                  ? 'border-theme-primary bg-theme-primary/15 text-theme-primary font-medium shadow-sm'
-                  : 'border-theme-border/70 bg-theme-card/60 text-theme-fg/70 hover:border-theme-primary/60 hover:text-theme-primary'
-              }`}
-            >
-              <span className="scale-75">{ICON_MAP[engine.icon] || <Search className="w-3 h-3" />}</span>
-              <span>{engine.name}</span>
-            </button>
-          );
-        })}
-      </div>
     </section>
   );
 };
