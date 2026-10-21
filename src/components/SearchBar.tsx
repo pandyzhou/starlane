@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SearchEngine, SEARCH_ENGINES, DEFAULT_ENGINE_ID } from '../config';
+import { BorderBeam } from './ui/border-beam-search';
 import { 
   Search, 
   ChevronDown, 
@@ -86,11 +87,20 @@ export const SearchBar: React.FC = () => {
 
   return (
     <section className="w-full max-w-3xl mb-16 relative z-30">
-      <div className="relative group">
-        <div className="relative flex items-center w-full rounded-2xl border border-theme-border bg-theme-card/85 backdrop-blur-xl shadow-[0_1px_2px_rgba(0,0,0,0.05),0_8px_24px_-14px_rgba(0,0,0,0.18)] transition duration-200 focus-within:border-theme-primary focus-within:ring-4 focus-within:ring-theme-primary/20">
+      <div className="relative group" ref={dropdownRef}>
+        <BorderBeam
+          size="line"
+          colorVariant="colorful"
+          duration={3.1}
+          theme="dark"
+          glowSize={0.55}
+          brightness={1.15}
+          className="w-full"
+        >
+        <div className="relative flex items-center w-full rounded-2xl border-2 border-theme-border bg-theme-card/85 backdrop-blur-xl shadow-[0_1px_2px_rgba(0,0,0,0.05),0_8px_24px_-14px_rgba(0,0,0,0.18)] transition duration-200 focus-within:border-theme-primary focus-within:ring-4 focus-within:ring-theme-primary/20">
           
           {/* 搜索引擎选择器 */}
-          <div className="relative" ref={dropdownRef}>
+          <div>
             <button
               type="button"
               onClick={() => setDropdownOpen(!dropdownOpen)}
@@ -102,43 +112,6 @@ export const SearchBar: React.FC = () => {
               <span className="text-xs font-medium tracking-wide">{currentEngine.name}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-theme-fg/50 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
-
-            {/* 下拉列表 */}
-            {dropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-[7.25rem] rounded-xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 z-50">
-                <div className="text-[10px] font-semibold text-theme-fg/50 px-1 py-1 tracking-wider uppercase">
-                  选择搜索引擎
-                </div>
-                <div className="space-y-0.5">
-                  {SEARCH_ENGINES.map(engine => {
-                    const isSelected = engine.id === currentEngine.id;
-                    return (
-                      <button
-                        key={engine.id}
-                        type="button"
-                        onClick={() => {
-                          setCurrentEngine(engine);
-                          setDropdownOpen(false);
-                          inputRef.current?.focus();
-                        }}
-                        className={`flex items-center w-full px-1 py-1.5 text-xs rounded-lg transition ${
-                          isSelected 
-                            ? 'bg-theme-primary/15 text-theme-primary font-medium' 
-                            : 'text-theme-fg/80 hover:bg-theme-primary/10 hover:text-theme-fg'
-                        }`}
-                      >
-                        <div className="flex items-center gap-1.5 min-w-0">
-                          <span className={`w-3 h-3 shrink-0 flex items-center justify-center [&>svg]:w-3 [&>svg]:h-3 ${isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}`}>
-                            {ICON_MAP[engine.icon] || <Search className="w-3 h-3" />}
-                          </span>
-                          <span className="truncate">{engine.name}</span>
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
           </div>
 
           <div className="h-5 w-[1px] bg-theme-border" />
@@ -171,6 +144,44 @@ export const SearchBar: React.FC = () => {
             )}
           </div>
         </div>
+        </BorderBeam>
+
+        {/* 下拉列表放在 BorderBeam 之外，否则会被它的 overflow-hidden 裁掉 */}
+        {dropdownOpen && (
+          <div className="absolute top-full left-0 mt-2 w-[7.25rem] rounded-xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 z-50">
+            <div className="text-[10px] font-semibold text-theme-fg/50 px-1 py-1 tracking-wider uppercase">
+              选择搜索引擎
+            </div>
+            <div className="space-y-0.5">
+              {SEARCH_ENGINES.map(engine => {
+                const isSelected = engine.id === currentEngine.id;
+                return (
+                  <button
+                    key={engine.id}
+                    type="button"
+                    onClick={() => {
+                      setCurrentEngine(engine);
+                      setDropdownOpen(false);
+                      inputRef.current?.focus();
+                    }}
+                    className={`flex items-center w-full px-1 py-1.5 text-xs rounded-lg transition ${
+                      isSelected 
+                        ? 'bg-theme-primary/15 text-theme-primary font-medium' 
+                        : 'text-theme-fg/80 hover:bg-theme-primary/10 hover:text-theme-fg'
+                    }`}
+                  >
+                    <div className="flex items-center gap-1.5 min-w-0">
+                      <span className={`w-3 h-3 shrink-0 flex items-center justify-center [&>svg]:w-3 [&>svg]:h-3 ${isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}`}>
+                        {ICON_MAP[engine.icon] || <Search className="w-3 h-3" />}
+                      </span>
+                      <span className="truncate">{engine.name}</span>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
