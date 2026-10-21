@@ -1,10 +1,11 @@
 import React from 'react';
+import { Binary, Pencil } from 'lucide-react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
-import { ExcalidrawCard } from './components/ExcalidrawCard';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
 import { ElegantPattern } from './components/ui/elegant-pattern';
+import { TiltCard } from './components/ui/tilt-card';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg className={className} viewBox="2 2 20 20" fill="currentColor">
@@ -55,7 +56,22 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <ExcalidrawCard />
+        <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
+          <TiltCard
+            href="https://excalidraw.com"
+            icon={<Pencil className="h-5 w-5" />}
+            title="Excalidraw"
+            desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
+            domain="excalidraw.com"
+          />
+          <TiltCard
+            href="https://www.luogu.com.cn/"
+            icon={<Binary className="h-5 w-5" />}
+            title="洛谷"
+            desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
+            domain="luogu.com.cn"
+          />
+        </div>
         <AnimatedDock className="mt-14 mb-4" items={DOCK_ITEMS} />
       </main>
     </div>
