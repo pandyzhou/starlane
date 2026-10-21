@@ -5,7 +5,7 @@ import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
 import { PatternBackground } from './components/ui/pattern-background';
-import { GlowCard } from './components/ui/glow-card';
+import { LinkRow } from './components/ui/link-row';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg className={className} viewBox="2 2 20 20" fill="currentColor">
@@ -56,15 +56,15 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <div className="grid w-full max-w-3xl grid-cols-1 gap-4 sm:grid-cols-2">
-          <GlowCard
+        <div className="flex w-full max-w-xl flex-col gap-3">
+          <LinkRow
             href="https://excalidraw.com"
             icon={<Pencil className="h-5 w-5" />}
             title="Excalidraw"
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
           />
-          <GlowCard
+          <LinkRow
             href="https://www.luogu.com.cn/"
             icon={<Binary className="h-5 w-5" />}
             title="洛谷"
