@@ -23,19 +23,6 @@ export default {
           muted: "rgb(var(--theme-muted-rgb) / <alpha-value>)",
         }
       },
-      backgroundSize: {
-        'shine-size': '300% 300%',
-      },
-      animation: {
-        shine: 'shine var(--duration, 14s) infinite linear',
-      },
-      keyframes: {
-        shine: {
-          '0%': { backgroundPosition: '0% 0%' },
-          '50%': { backgroundPosition: '100% 100%' },
-          '100%': { backgroundPosition: '0% 0%' },
-        },
-      },
     },
   },
   plugins: [],
