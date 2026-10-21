@@ -5,6 +5,7 @@
 - **技术栈**：React 18 + TypeScript + Vite 6 + Tailwind CSS 3 + Lucide Icons。
 - **服务环境**：开发服务器运行在 `0.0.0.0:35002`（`base: './'`），后台已有常驻进程并开启 Vite HMR，**切勿随意 kill 或重复启动**。
 - **构建输出**：生产产物输出到 `dist/`。
+- **缓存策略**：`public/_headers`（Cloudflare Pages / Netlify 格式）在构建时复制到 `dist/` 根目录；`/assets/*` 为一年 immutable 缓存，`index.html` 必须保持 `max-age=0`，否则用户会拿到指向旧资源哈希的旧页面。
 
 ## 核心命令
 - **构建与校验**：`npm run build`（等同于 `tsc && vite build`，改动代码后必须以此验证且无报错）。
