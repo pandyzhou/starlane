@@ -4,7 +4,7 @@ import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
-import { ElegantPattern } from './components/ui/elegant-pattern';
+import { PatternBackground } from './components/ui/pattern-background';
 import { TiltCard } from './components/ui/tilt-card';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
@@ -44,7 +44,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-theme-bg text-theme-fg antialiased relative flex flex-col justify-between selection:bg-theme-primary/30 selection:text-theme-primary">
       {/* 顶部氛围微光 */}
-      <ElegantPattern />
+      <PatternBackground />
       <div className="fixed inset-0 glow-radial pointer-events-none" />
 
       {/* 顶部工具栏（主题切换） */}
