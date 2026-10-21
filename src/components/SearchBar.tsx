@@ -8,7 +8,7 @@ import {
 } from 'lucide-react';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+  <svg className={className} viewBox="2 2 20 20" fill="currentColor">
     <path fillRule="evenodd" clipRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
   </svg>
 );
@@ -36,7 +36,7 @@ const GoogleIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" })
 );
 
 const BingIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) => (
-  <svg className={className} viewBox="0 0 24 24">
+  <svg className={className} viewBox="5 3 13 18">
     <path fill="#008373" d="M5 3v16l3.72 2L18 15.82v-4.09L9.77 8.95l1.61 3.89L13.94 14L8.7 16.92V4.27z" />
   </svg>
 );
@@ -48,13 +48,13 @@ const BaiduIcon: React.FC<{ className?: string }> = ({ className = "w-4 h-4" }) 
 );
 
 const ICON_MAP: Record<string, React.ReactNode> = {
-  Search: <Search className="w-4 h-4" />,
-  Google: <GoogleIcon className="w-4 h-4" />,
-  Bing: <BingIcon className="w-4 h-4" />,
-  Baidu: <BaiduIcon className="w-4 h-4" />,
-  Github: <GithubIcon className="w-4 h-4" />,
-  Shield: <DuckDuckGoIcon className="w-4 h-4" />,
-  Tv: <BilibiliIcon className="w-4 h-4" />
+  Search: <Search className="w-[18px] h-[18px]" />,
+  Google: <GoogleIcon className="w-[18px] h-[18px]" />,
+  Bing: <BingIcon className="w-[18px] h-[18px]" />,
+  Baidu: <BaiduIcon className="w-[18px] h-[18px]" />,
+  Github: <GithubIcon className="w-[18px] h-[18px]" />,
+  Shield: <DuckDuckGoIcon className="w-[18px] h-[18px]" />,
+  Tv: <BilibiliIcon className="w-[18px] h-[18px]" />
 };
 
 export const SearchBar: React.FC = () => {
@@ -130,8 +130,8 @@ export const SearchBar: React.FC = () => {
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center gap-2 pl-4 pr-3 py-3.5 text-sm font-medium text-theme-fg hover:opacity-90 transition rounded-l-2xl select-none"
             >
-              <span className="w-4 h-4 flex items-center justify-center text-theme-primary">
-                {ICON_MAP[currentEngine.icon] || <Search className="w-4 h-4" />}
+              <span className="w-[18px] h-[18px] shrink-0 flex items-center justify-center text-theme-primary">
+                {ICON_MAP[currentEngine.icon] || <Search className="w-[18px] h-[18px]" />}
               </span>
               <span className="text-xs font-medium tracking-wide">{currentEngine.name}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-theme-fg/50 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
@@ -192,8 +192,8 @@ export const SearchBar: React.FC = () => {
                     }`}
                   >
                     <div className="flex items-center gap-1.5 min-w-0">
-                      <span className={`w-3 h-3 shrink-0 flex items-center justify-center [&>svg]:w-3 [&>svg]:h-3 ${isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}`}>
-                        {ICON_MAP[engine.icon] || <Search className="w-3 h-3" />}
+                      <span className={`w-3.5 h-3.5 shrink-0 flex items-center justify-center [&>svg]:w-3.5 [&>svg]:h-3.5 ${isSelected ? 'text-theme-primary' : 'text-theme-fg/60'}`}>
+                        {ICON_MAP[engine.icon] || <Search className="w-3.5 h-3.5" />}
                       </span>
                       <span className="truncate">{engine.name}</span>
                     </div>
