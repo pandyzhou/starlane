@@ -77,7 +77,7 @@ export const SearchBar: React.FC = () => {
   return (
     <section className="w-full max-w-3xl mb-16 relative z-30">
       <div className="relative group">
-        <div className="relative flex items-center w-full rounded-2xl border border-theme-border bg-theme-card/85 backdrop-blur-xl shadow-2xl transition duration-200 focus-within:border-theme-primary focus-within:ring-4 focus-within:ring-theme-primary/20">
+        <div className="relative flex items-center w-full rounded-2xl border border-theme-border bg-theme-card/85 backdrop-blur-xl shadow-[0_1px_2px_rgba(0,0,0,0.05),0_8px_24px_-14px_rgba(0,0,0,0.18)] transition duration-200 focus-within:border-theme-primary focus-within:ring-4 focus-within:ring-theme-primary/20">
           
           {/* 搜索引擎选择器 */}
           <div className="relative" ref={dropdownRef}>
