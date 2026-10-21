@@ -5,7 +5,7 @@ import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
 import { AnimatedDock } from './components/ui/animated-dock';
 import { PatternBackground } from './components/ui/pattern-background';
-import { NeonFolderCard } from './components/ui/neon-folder-card';
+import { GradientCard } from './components/ui/gradient-card';
 
 const GithubIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
   <svg className={className} viewBox="2 2 20 20" fill="currentColor">
@@ -57,19 +57,21 @@ export const App: React.FC = () => {
         <Clock />
         <SearchBar />
         <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
-          <NeonFolderCard
+          <GradientCard
             href="https://excalidraw.com"
-            icon={<Pencil className="h-5 w-5" />}
+            icon={<Pencil />}
             title="Excalidraw"
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
+            tone="primary"
           />
-          <NeonFolderCard
+          <GradientCard
             href="https://www.luogu.com.cn/"
-            icon={<Binary className="h-5 w-5" />}
+            icon={<Binary />}
             title="洛谷"
             desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
             domain="luogu.com.cn"
+            tone="secondary"
           />
         </div>
         <AnimatedDock className="mt-14 mb-4" items={DOCK_ITEMS} />
