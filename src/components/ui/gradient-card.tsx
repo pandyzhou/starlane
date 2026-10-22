@@ -8,12 +8,13 @@ export interface GradientCardProps {
   title: string;
   desc: string;
   domain: string;
+  index?: string;
   tone?: 'primary' | 'secondary';
 }
 
 const TONES = {
-  primary: 'from-theme-primary/20 to-theme-secondary/10',
-  secondary: 'from-theme-secondary/25 to-theme-primary/10',
+  primary: 'from-theme-primary/35 via-theme-primary/5 to-transparent',
+  secondary: 'from-theme-secondary/40 via-theme-secondary/5 to-transparent',
 } as const;
 
 export const GradientCard: React.FC<GradientCardProps> = ({
@@ -22,6 +23,7 @@ export const GradientCard: React.FC<GradientCardProps> = ({
   title,
   desc,
   domain,
+  index = '01',
   tone = 'primary',
 }) => (
   <motion.a
@@ -33,7 +35,7 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     animate="rest"
     variants={{ rest: { scale: 1, y: 0 }, hover: { scale: 1.02, y: -4 } }}
     transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-    className={`group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-theme-border/50 bg-gradient-to-br p-6 ${TONES[tone]}`}
+    className={`group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-theme-border/70 bg-theme-card bg-gradient-to-br p-6 shadow-[0_14px_34px_-22px_rgba(0,0,0,0.6)] ${TONES[tone]}`}
   >
     <motion.span
       aria-hidden
@@ -45,17 +47,22 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     </motion.span>
 
     <div className="relative z-10 flex h-full flex-col">
-      <span className="mb-4 inline-flex w-fit items-center gap-2 rounded-full bg-theme-bg/60 px-3 py-1 text-[11px] font-medium text-theme-cardDesc backdrop-blur-sm">
-        <span className="h-1.5 w-1.5 rounded-full bg-theme-primary" />
-        {domain}
-      </span>
+      <div className="mb-4 flex items-start justify-between">
+        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-theme-bg/60 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-theme-cardDesc backdrop-blur-sm">
+          <span className="h-1.5 w-1.5 rounded-full bg-theme-primary" />
+          {domain}
+        </span>
+        <span className="font-mono text-[11px] tracking-widest text-theme-cardDesc/40">{index}</span>
+      </div>
 
       <span className="flex-grow">
-        <h3 className="mb-1.5 text-xl font-bold tracking-tight text-theme-cardFg">{title}</h3>
-        <p className="max-w-[26ch] text-xs leading-relaxed text-theme-cardDesc">{desc}</p>
+        <h3 className="mb-2 text-2xl font-semibold leading-tight tracking-[-0.02em] text-theme-cardFg">
+          {title}
+        </h3>
+        <p className="max-w-[26ch] text-[13px] leading-relaxed text-theme-cardDesc">{desc}</p>
       </span>
 
-      <span className="mt-5 inline-flex items-center gap-1.5 text-xs font-semibold text-theme-cardFg">
+      <span className="mt-5 inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-theme-cardFg">
         打开站点
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
       </span>
