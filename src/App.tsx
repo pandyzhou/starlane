@@ -36,7 +36,7 @@ const DouyinIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' })
 );
 
 const DOCK_ITEMS = [
-  { link: 'https://github.com', target: '_blank', Icon: <GithubIcon />, bg: 'bg-[#181717]', label: 'GitHub' },
+  { link: 'https://github.com/pandyzhou', target: '_blank', Icon: <GithubIcon />, bg: 'bg-[#181717]', label: 'GitHub' },
   { link: 'https://t.me', target: '_blank', Icon: <TelegramIcon />, bg: 'bg-[#26A5E4]', label: 'Telegram' },
   { link: 'https://www.douyin.com/', target: '_blank', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
 ];
