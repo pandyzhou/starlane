@@ -172,7 +172,7 @@ export const SearchBar: React.FC = () => {
 
         {/* 下拉列表放在 BorderBeam 之外，否则会被它的 overflow-hidden 裁掉 */}
         {dropdownOpen && (
-          <div className="absolute top-full left-0 mt-1 w-[7.25rem] rounded-xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 z-50">
+          <div className="absolute top-full left-[2px] mt-1 w-[8.5rem] rounded-2xl border border-theme-border bg-theme-card/95 backdrop-blur-xl p-1.5 z-50">
             <div className="space-y-0.5">
               {SEARCH_ENGINES.map(engine => {
                 const isSelected = engine.id === currentEngine.id;
