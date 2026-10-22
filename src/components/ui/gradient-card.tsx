@@ -28,7 +28,7 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     animate="rest"
     variants={{ rest: { scale: 1, y: 0 }, hover: { scale: 1.02, y: -4 } }}
     transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-    className="group relative flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-theme-border bg-theme-card p-6 transition-colors duration-300 hover:border-theme-primary/40 dark:bg-theme-muted/30"
+    className="group relative flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-white/25 bg-white/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.04),0_18px_40px_-26px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-colors duration-300 hover:border-white/40 dark:border-white/12 dark:bg-white/[0.06] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_40px_-26px_rgba(0,0,0,0.8)]"
   >
     <motion.span
       aria-hidden
