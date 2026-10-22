@@ -1,5 +1,5 @@
 import React from 'react';
-import { Binary, NotebookPen, Pencil } from 'lucide-react';
+import { Activity, Binary, NotebookPen, Pencil } from 'lucide-react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
@@ -84,7 +84,7 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 pb-32 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <div className="grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
           <GradientCard
             href="https://excalidraw.com"
             icon={<Pencil />}
@@ -108,6 +108,14 @@ export const App: React.FC = () => {
             desc="个人博客，记录开发笔记、踩坑过程与一些零散的折腾。"
             domain="blog.blockcorner.top"
             index="03"
+          />
+          <GradientCard
+            href="https://komari.zhouyihub.com"
+            icon={<Activity />}
+            title="Komari"
+            desc="服务器状态监控面板，查看节点负载、流量与在线情况。"
+            domain="komari.zhouyihub.com"
+            index="04"
           />
         </div>
       </main>
