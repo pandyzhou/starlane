@@ -49,7 +49,7 @@ const DOCK_ITEMS = [
   { link: 'https://t.me', target: '_blank', Icon: <TelegramIcon />, bg: 'bg-[#26A5E4]', label: 'Telegram' },
   { link: 'https://www.douyin.com/', target: '_blank', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
   { link: 'https://www.aliyun.com/', target: '_blank', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
-  { link: 'https://cloud.tencent.com/', target: '_blank', Icon: <img src="./tencent-cloud.png" alt="" className="h-5 w-5" />, bg: 'bg-[#0052d9]', label: '腾讯云' },
+  { link: 'https://cloud.tencent.com/', target: '_blank', Icon: <img src="./tencent-cloud.png" alt="" className="h-4 w-4" />, bg: 'bg-[#0052d9]', label: '腾讯云' },
 ];
 
 export const App: React.FC = () => {
