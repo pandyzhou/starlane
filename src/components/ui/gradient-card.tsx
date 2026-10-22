@@ -9,13 +9,7 @@ export interface GradientCardProps {
   desc: string;
   domain: string;
   index?: string;
-  tone?: 'primary' | 'secondary';
 }
-
-const TONES = {
-  primary: 'from-theme-primary/35 via-theme-primary/5 to-transparent',
-  secondary: 'from-theme-secondary/40 via-theme-secondary/5 to-transparent',
-} as const;
 
 export const GradientCard: React.FC<GradientCardProps> = ({
   href,
@@ -24,7 +18,6 @@ export const GradientCard: React.FC<GradientCardProps> = ({
   desc,
   domain,
   index = '01',
-  tone = 'primary',
 }) => (
   <motion.a
     href={href}
@@ -35,20 +28,20 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     animate="rest"
     variants={{ rest: { scale: 1, y: 0 }, hover: { scale: 1.02, y: -4 } }}
     transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-    className={`group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-theme-border/70 bg-theme-card bg-gradient-to-br p-6 shadow-[0_14px_34px_-22px_rgba(0,0,0,0.6)] ${TONES[tone]}`}
+    className="group relative flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-theme-border bg-theme-card p-6 transition-colors duration-300 hover:border-theme-primary/40 dark:bg-theme-muted/30"
   >
     <motion.span
       aria-hidden
       variants={{ rest: { scale: 1, rotate: 0 }, hover: { scale: 1.1, rotate: 6 } }}
       transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-      className="pointer-events-none absolute -bottom-8 -right-6 text-theme-primary/15"
+      className="pointer-events-none absolute -bottom-8 -right-6 text-theme-primary/10 dark:text-theme-primary/15"
     >
       <span className="block [&>svg]:h-32 [&>svg]:w-32">{icon}</span>
     </motion.span>
 
     <div className="relative z-10 flex h-full flex-col">
       <div className="mb-4 flex items-start justify-between">
-        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-theme-bg/60 px-3 py-1.5 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc backdrop-blur-sm">
+        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-theme-border/70 px-3 py-1.5 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc">
           <span className="h-1.5 w-1.5 rounded-full bg-theme-primary" />
           {domain}
         </span>

@@ -66,7 +66,6 @@ export const App: React.FC = () => {
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
             index="01"
-            tone="primary"
           />
           <GradientCard
             href="https://www.luogu.com.cn/"
@@ -75,7 +74,6 @@ export const App: React.FC = () => {
             desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
             domain="luogu.com.cn"
             index="02"
-            tone="secondary"
           />
         </div>
       </main>

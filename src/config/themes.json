@@ -148,23 +148,23 @@
   },
   {
     "id": "cyberpunk",
-    "name": "赛博朋克",
-    "displayName": "赛博朋克",
+    "name": "霓虹夜",
+    "displayName": "霓虹夜",
     "type": "dark",
     "icon": "Zap",
     "colors": {
-      "background": "#080814",
-      "foreground": "#f3f4f6",
-      "card": "#12122b",
-      "cardFg": "#f3f4f6",
-      "cardDesc": "#99a2c2",
-      "border": "#2a2a5e",
-      "primary": "#00ffcc",
-      "secondary": "#ff007f",
-      "accent": "#ffe600",
-      "muted": "#1a1a3a",
-      "glowA": "rgba(0, 255, 204, 0.14)",
-      "glowB": "rgba(255, 0, 127, 0.14)"
+      "background": "#0b0b0c",
+      "foreground": "#f4f4f5",
+      "card": "#141416",
+      "cardFg": "#f4f4f5",
+      "cardDesc": "#a1a1aa",
+      "border": "#27272a",
+      "primary": "#22d3ee",
+      "secondary": "#ff3da5",
+      "accent": "#ffb800",
+      "muted": "#1c1c1f",
+      "glowA": "rgba(34, 211, 238, 0.14)",
+      "glowB": "rgba(255, 61, 165, 0.14)"
     }
   }
 ]
