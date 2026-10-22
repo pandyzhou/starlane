@@ -40,7 +40,7 @@ export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
       )}
     >
       {items.map((item, index) => (
-        <DockItem key={index} mouseX={mouseX} bg={item.bg}>
+        <DockItem key={index} mouseX={mouseX} bg={item.bg} label={item.label}>
           <a
             href={item.link}
             target={item.target}
@@ -60,9 +60,10 @@ interface DockItemProps {
   mouseX: MotionValue<number>;
   children: React.ReactNode;
   bg?: string;
+  label: string;
 }
 
-export const DockItem = ({ mouseX, bg, children }: DockItemProps) => {
+export const DockItem = ({ mouseX, bg, label, children }: DockItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
 
@@ -92,10 +93,18 @@ export const DockItem = ({ mouseX, bg, children }: DockItemProps) => {
       ref={ref}
       style={{ width }}
       className={cn(
-        'flex aspect-square w-10 items-center justify-center rounded-[0.9rem] bg-theme-fg',
+        'group/dock relative flex aspect-square w-10 items-center justify-center rounded-[0.9rem] bg-theme-fg',
         bg
       )}
     >
+      {/* 悬停时在图标上方浮出名称，给纯图标入口一个可读标签 */}
+      <span
+        role="tooltip"
+        className="pointer-events-none absolute bottom-full left-1/2 mb-2.5 -translate-x-1/2 whitespace-nowrap rounded-lg border border-theme-border bg-theme-card px-2.5 py-1 text-[11px] font-medium text-theme-fg opacity-0 shadow-lg transition-opacity duration-150 group-hover/dock:opacity-100"
+      >
+        {label}
+      </span>
+
       <motion.div
         style={{ scale: iconSpring }}
         className="flex h-full w-full grow items-center justify-center"
