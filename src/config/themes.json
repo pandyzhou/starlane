@@ -148,23 +148,23 @@
   },
   {
     "id": "cyberpunk",
-    "name": "霓虹夜",
-    "displayName": "霓虹夜",
+    "name": "绯夜",
+    "displayName": "绯夜",
     "type": "dark",
     "icon": "Zap",
     "colors": {
-      "background": "#0b0b0c",
-      "foreground": "#f4f4f5",
-      "card": "#141416",
-      "cardFg": "#f4f4f5",
-      "cardDesc": "#a1a1aa",
-      "border": "#27272a",
-      "primary": "#22d3ee",
-      "secondary": "#ff3da5",
-      "accent": "#ffb800",
-      "muted": "#1c1c1f",
-      "glowA": "rgba(34, 211, 238, 0.14)",
-      "glowB": "rgba(255, 61, 165, 0.14)"
+      "background": "#140a0d",
+      "foreground": "#faf5f6",
+      "card": "#1d1014",
+      "cardFg": "#faf5f6",
+      "cardDesc": "#b08a92",
+      "border": "#301c22",
+      "primary": "#f43f5e",
+      "secondary": "#fb923c",
+      "accent": "#fcd34d",
+      "muted": "#26131a",
+      "glowA": "rgba(244, 63, 94, 0.16)",
+      "glowB": "rgba(251, 146, 60, 0.14)"
     }
   }
 ]
