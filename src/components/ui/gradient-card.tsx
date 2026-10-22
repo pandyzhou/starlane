@@ -56,10 +56,10 @@ export const GradientCard: React.FC<GradientCardProps> = ({
       </div>
 
       <span className="flex-grow">
-        <h3 className="mb-2.5 text-[24px] font-semibold leading-[1.15] tracking-[-0.015em] text-theme-cardFg">
+        <h3 className="mb-2.5 text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
           {title}
         </h3>
-        <p className="max-w-[27ch] text-pretty text-[14px] leading-[1.6] text-theme-cardDesc/90">{desc}</p>
+        <p className="max-w-[27ch] text-pretty text-[15px] leading-[1.6] text-theme-cardDesc/85">{desc}</p>
       </span>
 
       <span className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-medium tracking-[0.06em] text-theme-cardFg">
