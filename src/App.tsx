@@ -55,7 +55,7 @@ export const App: React.FC = () => {
       </div>
 
       {/* 主工作区 */}
-      <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 flex-1 flex flex-col items-center">
+      <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 pb-32 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
         <div className="grid w-full max-w-2xl grid-cols-1 gap-4 sm:grid-cols-2">
@@ -78,8 +78,14 @@ export const App: React.FC = () => {
             tone="secondary"
           />
         </div>
-        <AnimatedDock className="mt-14 mb-4" items={DOCK_ITEMS} />
       </main>
+
+      {/* Dock 固定在视口底部 */}
+      <div className="pointer-events-none fixed inset-x-0 bottom-5 z-40 flex justify-center px-5">
+        <div className="pointer-events-auto">
+          <AnimatedDock items={DOCK_ITEMS} />
+        </div>
+      </div>
     </div>
   );
 };
