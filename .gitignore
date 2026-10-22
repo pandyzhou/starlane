@@ -31,3 +31,6 @@ register_21st.py
 .env
 .env.*
 !.env.example
+
+# Claude Code skills (installed locally, not part of the app)
+.claude/skills/
