@@ -44,12 +44,27 @@ const AliyunIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' })
 
 
 
+
+const TencentCloudIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h-5' }) => (
+  <svg
+    className={className}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M8.6 18h8.8a4.4 4.4 0 0 0 .5-8.77A6.4 6.4 0 0 0 5.5 10.7 3.9 3.9 0 0 0 8.6 18Z" />
+  </svg>
+);
+
 const DOCK_ITEMS = [
   { link: 'https://github.com/pandyzhou', target: '_blank', Icon: <GithubIcon />, bg: 'bg-[#181717]', label: 'GitHub' },
   { link: 'https://t.me', target: '_blank', Icon: <TelegramIcon />, bg: 'bg-[#26A5E4]', label: 'Telegram' },
   { link: 'https://www.douyin.com/', target: '_blank', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
-  { link: 'https://www.aliyun.com/', target: '_blank', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
-  { link: 'https://cloud.tencent.com/', target: '_blank', Icon: <img src="./tencent-cloud.png" alt="" className="h-4 w-4" />, bg: 'bg-[#0052d9]', label: '腾讯云' },
+  { link: 'https://home.console.aliyun.com/home/dashboard/ProductAndService', target: '_blank', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
+  { link: 'https://console.cloud.tencent.com', target: '_blank', Icon: <TencentCloudIcon />, bg: 'bg-[#0052d9]', label: '腾讯云' },
 ];
 
 export const App: React.FC = () => {
