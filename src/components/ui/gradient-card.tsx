@@ -48,17 +48,17 @@ export const GradientCard: React.FC<GradientCardProps> = ({
 
     <div className="relative z-10 flex h-full flex-col">
       <div className="mb-4 flex items-start justify-between">
-        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-theme-bg/60 px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc backdrop-blur-sm">
+        <span className="inline-flex w-fit items-center gap-2 rounded-full bg-theme-bg/60 px-3 py-1.5 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc backdrop-blur-sm">
           <span className="h-1.5 w-1.5 rounded-full bg-theme-primary" />
           {domain}
         </span>
-        <span className="font-mono text-[11px] tracking-widest text-theme-cardDesc/40">{index}</span>
+        <span className="font-mono text-[12px] tracking-widest text-theme-cardDesc/40 tabular-nums">{index}</span>
       </div>
 
       <span className="flex-grow">
-        <h3 className="mb-2.5 text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
+        <h2 className="mb-2.5 text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
           {title}
-        </h3>
+        </h2>
         <p className="max-w-[27ch] text-pretty text-[15px] leading-[1.6] text-theme-cardDesc">{desc}</p>
       </span>
 

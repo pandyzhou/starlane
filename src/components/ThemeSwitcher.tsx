@@ -62,7 +62,7 @@ export const ThemeSwitcher: React.FC = () => {
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-theme-border bg-theme-card/80 backdrop-blur-md text-xs font-medium text-theme-fg hover:border-theme-primary transition shadow-sm select-none"
+        className="flex cursor-pointer items-center gap-2 px-3 py-1.5 rounded-full border border-theme-border bg-theme-card/80 backdrop-blur-md text-xs font-medium text-theme-fg hover:border-theme-primary transition shadow-sm select-none"
         title="切换主题"
       >
         <span
@@ -93,7 +93,7 @@ export const ThemeSwitcher: React.FC = () => {
                       onClick={() => {
                         setCurrentThemeId(t.id);
                       }}
-                      className={`flex items-center justify-between p-1.5 rounded-xl border text-xs text-left transition ${
+                      className={`flex cursor-pointer items-center justify-between p-1.5 rounded-xl border text-xs text-left transition ${
                         active
                           ? 'border-theme-primary bg-theme-primary/10 font-semibold'
                           : 'border-theme-border/60 hover:border-theme-primary/50 hover:bg-theme-muted/50'
@@ -133,7 +133,7 @@ export const ThemeSwitcher: React.FC = () => {
                       onClick={() => {
                         setCurrentThemeId(t.id);
                       }}
-                      className={`flex items-center justify-between p-1.5 rounded-xl border text-xs text-left transition ${
+                      className={`flex cursor-pointer items-center justify-between p-1.5 rounded-xl border text-xs text-left transition ${
                         active
                           ? 'border-theme-primary bg-theme-primary/10 font-semibold'
                           : 'border-theme-border/60 hover:border-theme-primary/50 hover:bg-theme-muted/50'

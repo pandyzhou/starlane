@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import {
   motion,
   useMotionValue,
+  useReducedMotion,
   useSpring,
   useTransform,
   type MotionValue,
@@ -17,6 +18,8 @@ export interface DockItemData {
   Icon: React.ReactNode;
   target?: string;
   bg?: string;
+  /** 纯图标链接没有可见文字，必须给读屏留名称 */
+  label: string;
 }
 
 export interface AnimatedDockProps {
@@ -42,6 +45,7 @@ export const AnimatedDock = ({ className, items }: AnimatedDockProps) => {
             href={item.link}
             target={item.target}
             rel="noopener noreferrer"
+            aria-label={item.label}
             className="flex h-full w-full grow items-center justify-center text-white"
           >
             {item.Icon}
@@ -60,6 +64,7 @@ interface DockItemProps {
 
 export const DockItem = ({ mouseX, bg, children }: DockItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
 
   const distance = useTransform(mouseX, (val) => {
     const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
@@ -67,7 +72,9 @@ export const DockItem = ({ mouseX, bg, children }: DockItemProps) => {
   });
 
   const widthSync = useTransform(distance, [-150, 0, 150], [40, 80, 40]);
-  const width = useSpring(widthSync, {
+  // 用户要求减少动态效果时，图标保持固定尺寸，不做放大
+  const calmWidth = useTransform(widthSync, (v) => (reduceMotion ? 40 : v));
+  const width = useSpring(calmWidth, {
     mass: 0.1,
     stiffness: 150,
     damping: 12,

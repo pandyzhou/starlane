@@ -30,7 +30,7 @@ export const Clock: React.FC = () => {
       <h1 className="text-2xl md:text-3xl font-medium tracking-widest text-theme-fg mb-3">
         疏星弄
       </h1>
-      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-theme-fg mb-2 font-mono">
+      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-theme-fg mb-2 font-mono tabular-nums">
         {timeStr}
       </div>
       <div className="text-sm font-medium text-theme-fg/60 flex items-center gap-1.5">

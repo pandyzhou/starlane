@@ -40,6 +40,12 @@
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
+  /* WCAG 2.4.7：键盘焦点必须可见，统一用主题色描边 */
+  :focus-visible {
+    outline: 2px solid rgb(var(--theme-primary-rgb));
+    outline-offset: 2px;
+  }
+
   /* 切换主题的瞬间禁用过渡，避免局部元素比全局晚变色 */
   .theme-switching *,
   .theme-switching *::before,
