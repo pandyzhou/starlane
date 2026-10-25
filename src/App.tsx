@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, Binary, Crosshair, NotebookPen, Pencil } from 'lucide-react';
+import { Activity, Binary, BookOpen, Crosshair, NotebookPen, Pencil } from 'lucide-react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
@@ -124,6 +124,14 @@ export const App: React.FC = () => {
             desc="《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。"
             domain="eftarkov.com"
             index="05"
+          />
+          <GradientCard
+            href="https://oi-wiki.org/"
+            icon={<BookOpen />}
+            title="OI Wiki"
+            desc="算法竞赛知识库，从基础语法到高级算法的系统整理。"
+            domain="oi-wiki.org"
+            index="06"
           />
         </div>
       </main>
