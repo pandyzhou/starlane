@@ -198,7 +198,7 @@ export const SearchBar: React.FC = () => {
               <span className="w-[18px] h-[18px] shrink-0 flex items-center justify-center text-theme-primary">
                 {ICON_MAP[currentEngine.icon] || <Search className="w-[18px] h-[18px]" />}
               </span>
-              <span className="text-xs font-medium tracking-wide">{currentEngine.name}</span>
+              <span className="w-[4.75rem] truncate text-xs font-medium tracking-wide">{currentEngine.name}</span>
               <ChevronDown className={`w-3.5 h-3.5 text-theme-fg/50 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
             </button>
           </div>
