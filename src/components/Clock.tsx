@@ -26,11 +26,11 @@ export const Clock: React.FC = () => {
   }, []);
 
   return (
-    <header className="flex flex-col items-center mb-10 text-center select-none">
-      <h1 className="text-2xl md:text-3xl font-medium tracking-widest text-theme-fg mb-3">
+    <header className="flex flex-col items-center mb-4 text-center select-none">
+      <h1 className="text-xl md:text-2xl font-medium tracking-widest text-theme-fg mb-3">
         疏星弄
       </h1>
-      <div className="text-4xl md:text-5xl font-semibold tracking-tight text-theme-fg mb-2 font-mono tabular-nums">
+      <div className="text-3xl md:text-4xl font-semibold tracking-tight text-theme-fg mb-2 font-mono tabular-nums">
         {timeStr}
       </div>
       <div className="text-sm font-medium text-theme-fg/60 flex items-center gap-1.5">

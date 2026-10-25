@@ -175,7 +175,7 @@ export const SearchBar: React.FC = () => {
   };
 
   return (
-    <section className="w-full max-w-3xl mb-16 relative z-30">
+    <section className="w-full max-w-3xl mb-8 relative z-30">
       <div className="relative group" ref={dropdownRef}>
         <BorderBeam
           size="line"

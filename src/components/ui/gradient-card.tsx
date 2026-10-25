@@ -40,8 +40,8 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     </motion.span>
 
     <div className="relative z-10 flex h-full flex-col">
-      <div className="mb-4 flex items-start justify-between">
-        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-theme-border/70 px-3 py-1.5 font-mono text-[12px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc">
+      <div className="mb-3 flex items-start justify-between">
+        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-theme-border/70 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc">
           <span className="h-1.5 w-1.5 rounded-full bg-theme-primary" />
           {domain}
         </span>
@@ -49,13 +49,13 @@ export const GradientCard: React.FC<GradientCardProps> = ({
       </div>
 
       <span className="flex-grow">
-        <h2 className="mb-2.5 text-[24px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
+        <h2 className="mb-2 text-[20px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
           {title}
         </h2>
-        <p className="max-w-[27ch] text-pretty text-[15px] leading-[1.6] text-theme-cardDesc">{desc}</p>
+        <p className="max-w-[27ch] text-pretty text-[13px] leading-[1.55] text-theme-cardDesc">{desc}</p>
       </span>
 
-      <span className="mt-5 inline-flex items-center gap-1.5 text-[12px] font-medium tracking-[0.06em] text-theme-cardFg">
+      <span className="mt-4 inline-flex items-center gap-1.5 text-[12px] font-medium tracking-[0.06em] text-theme-cardFg">
         打开站点
         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
       </span>
