@@ -99,7 +99,16 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 35002,
-    allowedHosts: true
+    allowedHosts: true,
+    // 本地没有边缘函数运行时，开发时把 /api/suggest 直连到 Bilibili
+    proxy: {
+      '/api/suggest': {
+        target: 'https://s.search.bilibili.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/suggest/, '/main/suggest'),
+        headers: { Referer: 'https://search.bilibili.com/' }
+      }
+    }
   },
   build: {
     outDir: 'dist',

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { SearchEngine, SEARCH_ENGINES, DEFAULT_ENGINE_ID } from '../config';
 import { BorderBeam } from './ui/border-beam-search';
+import { fetchSuggestions, SUPPORTS_SUGGEST } from './ui/search-suggest';
 import { 
   Search, 
   ChevronDown, 
@@ -63,6 +64,9 @@ export const SearchBar: React.FC = () => {
   });
   const [query, setQuery] = useState('');
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [activeSuggestion, setActiveSuggestion] = useState(-1);
+  const [suggestOpen, setSuggestOpen] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -96,6 +100,44 @@ export const SearchBar: React.FC = () => {
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // 输入或引擎变化时拉取建议；仅百度 / Google / Bing 支持
+  useEffect(() => {
+    const text = query.trim();
+    setActiveSuggestion(-1);
+    if (!text || !SUPPORTS_SUGGEST.has(currentEngine.id)) {
+      setSuggestions([]);
+      setSuggestOpen(false);
+      return;
+    }
+    let cancelled = false;
+    const timer = setTimeout(() => {
+      fetchSuggestions(currentEngine.id, text)
+        .then((list) => {
+          if (cancelled) return;
+          setSuggestions(list.slice(0, 8));
+          setSuggestOpen(list.length > 0 && document.activeElement === inputRef.current);
+        })
+        .catch(() => {
+          if (!cancelled) {
+            setSuggestions([]);
+            setSuggestOpen(false);
+          }
+        });
+    }, 250);
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [query, currentEngine.id]);
+
+  const runSearch = (term: string) => {
+    const trimmed = term.trim();
+    if (!trimmed) return;
+    setSuggestOpen(false);
+    setActiveSuggestion(-1);
+    window.open(currentEngine.url + encodeURIComponent(trimmed), '_blank', 'noopener,noreferrer');
+  };
+
   const handleSearch = () => {
     const trimmed = query.trim();
     if (!trimmed) return;
@@ -104,7 +146,30 @@ export const SearchBar: React.FC = () => {
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (suggestOpen && suggestions.length > 0) {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActiveSuggestion((i) => (i + 1) % suggestions.length);
+        return;
+      }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActiveSuggestion((i) => (i <= 0 ? suggestions.length - 1 : i - 1));
+        return;
+      }
+      if (e.key === 'Escape') {
+        setSuggestOpen(false);
+        setActiveSuggestion(-1);
+        return;
+      }
+    }
     if (e.key === 'Enter') {
+      if (suggestOpen && activeSuggestion >= 0 && suggestions[activeSuggestion]) {
+        const picked = suggestions[activeSuggestion];
+        setQuery(picked);
+        runSearch(picked);
+        return;
+      }
       handleSearch();
     }
   };
@@ -147,6 +212,8 @@ export const SearchBar: React.FC = () => {
             value={query}
             onChange={e => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
+            onFocus={() => { if (suggestions.length) setSuggestOpen(true); }}
+            onBlur={() => window.setTimeout(() => setSuggestOpen(false), 120)}
             placeholder="输入关键词，回车即搜..."
             className="flex-1 bg-transparent px-4 py-3.5 text-sm md:text-base text-theme-fg placeholder:text-theme-fg/40 outline-none w-full"
           />
@@ -169,6 +236,29 @@ export const SearchBar: React.FC = () => {
           </div>
         </div>
         </BorderBeam>
+
+        {/* 搜索建议：同样放在 BorderBeam 之外 */}
+        {suggestOpen && suggestions.length > 0 && (
+          <ul className="absolute left-0 right-0 top-full z-50 mt-1 overflow-hidden rounded-2xl border border-theme-border bg-theme-card/95 py-1 shadow-2xl backdrop-blur-xl">
+            {suggestions.map((item, i) => (
+              <li key={item}>
+                <button
+                  type="button"
+                  onMouseEnter={() => setActiveSuggestion(i)}
+                  onMouseDown={(e) => { e.preventDefault(); setQuery(item); runSearch(item); }}
+                  className={`flex w-full items-center gap-2.5 px-4 py-2 text-left text-sm transition-colors ${
+                    i === activeSuggestion
+                      ? 'bg-theme-primary/10 text-theme-primary'
+                      : 'text-theme-fg hover:bg-theme-primary/5'
+                  }`}
+                >
+                  <Search className="h-3.5 w-3.5 shrink-0 opacity-40" />
+                  <span className="truncate">{item}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* 下拉列表放在 BorderBeam 之外，否则会被它的 overflow-hidden 裁掉 */}
         {dropdownOpen && (
