@@ -81,7 +81,7 @@ export const App: React.FC = () => {
       </div>
 
       {/* 主工作区 */}
-      <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 py-6 md:py-12 pb-32 flex-1 flex flex-col items-center">
+      <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 pt-6 md:pt-12 pb-32 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
         <div className="grid w-full max-w-4xl grid-cols-1 gap-4 sm:grid-cols-[repeat(auto-fill,minmax(260px,1fr))]">
