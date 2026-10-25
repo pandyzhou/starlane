@@ -135,14 +135,14 @@ export const SearchBar: React.FC = () => {
     if (!trimmed) return;
     setSuggestOpen(false);
     setActiveSuggestion(-1);
-    window.open(currentEngine.url + encodeURIComponent(trimmed), '_blank', 'noopener,noreferrer');
+    window.location.href = currentEngine.url + encodeURIComponent(trimmed);
   };
 
   const handleSearch = () => {
     const trimmed = query.trim();
     if (!trimmed) return;
     const targetUrl = currentEngine.url + encodeURIComponent(trimmed);
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    window.location.href = targetUrl;
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

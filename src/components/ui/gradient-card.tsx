@@ -21,8 +21,6 @@ export const GradientCard: React.FC<GradientCardProps> = ({
 }) => (
   <motion.a
     href={href}
-    target="_blank"
-    rel="noopener noreferrer"
     initial="rest"
     whileHover="hover"
     animate="rest"
