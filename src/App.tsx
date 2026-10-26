@@ -65,7 +65,6 @@ const DOCK_ITEMS = [
   { link: 'https://www.douyin.com/', target: '_blank', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
   { link: 'https://home.console.aliyun.com/home/dashboard/ProductAndService', target: '_blank', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
   { link: 'https://console.cloud.tencent.com', target: '_blank', Icon: <TencentCloudIcon />, bg: 'bg-[#0052d9]', label: '腾讯云' },
-  { link: 'https://console.evoxt.com/dashboard.php', target: '_blank', Icon: <Server />, bg: 'bg-[#2563eb]', label: 'Evoxt' },
 ];
 
 export const App: React.FC = () => {
@@ -85,7 +84,7 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 pt-2 md:pt-3 pb-16 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <div className="grid w-full max-w-4xl grid-cols-1 gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(260px,1fr))]">
+        <div className="grid w-full max-w-5xl grid-cols-1 gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(212px,1fr))]">
           <GradientCard
             href="https://excalidraw.com"
             icon={<Pencil />}
@@ -133,6 +132,14 @@ export const App: React.FC = () => {
             desc="算法竞赛知识库，从基础语法到高级算法的系统整理。"
             domain="oi-wiki.org"
             index="06"
+          />
+          <GradientCard
+            href="https://console.evoxt.com/dashboard.php"
+            icon={<Server />}
+            title="Evoxt"
+            desc="VPS 云服务器控制台，管理实例、监控流量与账单。"
+            domain="console.evoxt.com"
+            index="07"
           />
         </div>
       </main>
