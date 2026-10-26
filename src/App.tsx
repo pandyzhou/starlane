@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, Binary, BookOpen, Crosshair, NotebookPen, Pencil } from 'lucide-react';
+import { Activity, Binary, BookOpen, Crosshair, NotebookPen, Pencil, Server } from 'lucide-react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
@@ -65,6 +65,7 @@ const DOCK_ITEMS = [
   { link: 'https://www.douyin.com/', target: '_blank', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
   { link: 'https://home.console.aliyun.com/home/dashboard/ProductAndService', target: '_blank', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
   { link: 'https://console.cloud.tencent.com', target: '_blank', Icon: <TencentCloudIcon />, bg: 'bg-[#0052d9]', label: '腾讯云' },
+  { link: 'https://console.evoxt.com/dashboard.php', target: '_blank', Icon: <Server />, bg: 'bg-[#2563eb]', label: 'Evoxt' },
 ];
 
 export const App: React.FC = () => {
