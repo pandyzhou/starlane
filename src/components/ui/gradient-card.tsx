@@ -2,31 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
-export type CardAccent = 'primary' | 'secondary' | 'accent' | 'muted';
-
-const ACCENT: Record<CardAccent, { wash: string; dot: string; icon: string }> = {
-  primary: {
-    wash: 'from-theme-primary/[0.16]',
-    dot: 'bg-theme-primary',
-    icon: 'bg-theme-primary/12 text-theme-primary',
-  },
-  secondary: {
-    wash: 'from-theme-secondary/[0.20]',
-    dot: 'bg-theme-secondary',
-    icon: 'bg-theme-secondary/15 text-theme-secondary',
-  },
-  accent: {
-    wash: 'from-theme-accent/[0.18]',
-    dot: 'bg-theme-accent',
-    icon: 'bg-theme-accent/15 text-theme-accent',
-  },
-  muted: {
-    wash: 'from-theme-muted/[0.24]',
-    dot: 'bg-theme-muted',
-    icon: 'bg-theme-muted/30 text-theme-cardDesc',
-  },
-};
-
 export interface GradientCardProps {
   href: string;
   icon: React.ReactNode;
@@ -34,7 +9,6 @@ export interface GradientCardProps {
   desc: string;
   domain: string;
   index?: string;
-  accent?: CardAccent;
 }
 
 export const GradientCard: React.FC<GradientCardProps> = ({
@@ -44,7 +18,6 @@ export const GradientCard: React.FC<GradientCardProps> = ({
   desc,
   domain,
   index = '01',
-  accent = 'primary',
 }) => (
   <motion.a
     href={href}
@@ -53,12 +26,12 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     animate="rest"
     variants={{ rest: { scale: 1, y: 0 }, hover: { scale: 1.02, y: -4 } }}
     transition={{ type: 'spring', stiffness: 400, damping: 22 }}
-    className={`group relative flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-white/25 bg-white/55 bg-gradient-to-br to-transparent p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.04),0_18px_40px_-26px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-colors duration-300 hover:border-white/40 dark:border-white/12 dark:bg-white/[0.06] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_40px_-26px_rgba(0,0,0,0.8)] ${ACCENT[accent].wash}`}
+    className="group relative flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-theme-border bg-theme-card p-4 transition-colors duration-300 hover:border-theme-primary/40 dark:bg-theme-muted/30"
   >
     <div className="relative z-10 flex h-full flex-col">
       <div className="mb-3 flex items-start justify-between">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-theme-border/70 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc">
-          <span className={`h-1.5 w-1.5 rounded-full ${ACCENT[accent].dot}`} />
+          <span className="h-1.5 w-1.5 rounded-full bg-theme-primary" />
           {domain}
         </span>
         <span className="font-mono text-[12px] tracking-widest text-theme-cardDesc/40 tabular-nums">{index}</span>
