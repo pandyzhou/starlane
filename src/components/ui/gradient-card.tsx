@@ -55,15 +55,6 @@ export const GradientCard: React.FC<GradientCardProps> = ({
     transition={{ type: 'spring', stiffness: 400, damping: 22 }}
     className={`group relative flex h-full w-full flex-col overflow-hidden rounded-[18px] border border-white/25 bg-white/55 bg-gradient-to-br to-transparent p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),inset_0_-1px_0_rgba(0,0,0,0.04),0_18px_40px_-26px_rgba(0,0,0,0.5)] backdrop-blur-2xl transition-colors duration-300 hover:border-white/40 dark:border-white/12 dark:bg-white/[0.06] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_18px_40px_-26px_rgba(0,0,0,0.8)] ${ACCENT[accent].wash}`}
   >
-    <motion.span
-      aria-hidden
-      variants={{ rest: { scale: 1, rotate: 0 }, hover: { scale: 1.1, rotate: 6 } }}
-      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-      className="pointer-events-none absolute -bottom-8 -right-6 text-theme-primary/10 dark:text-theme-primary/15"
-    >
-      <span className="block [&>svg]:h-32 [&>svg]:w-32">{icon}</span>
-    </motion.span>
-
     <div className="relative z-10 flex h-full flex-col">
       <div className="mb-3 flex items-start justify-between">
         <span className="inline-flex w-fit items-center gap-2 rounded-full border border-theme-border/70 px-2.5 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.12em] text-theme-cardDesc">
@@ -74,9 +65,14 @@ export const GradientCard: React.FC<GradientCardProps> = ({
       </div>
 
       <span className="flex-grow">
-        <h2 className="mb-2 text-[20px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
-          {title}
-        </h2>
+        <span className="mb-2 flex items-center gap-2.5">
+          <span className="flex h-7 w-7 shrink-0 items-center justify-center [&>img]:h-7 [&>img]:w-7">
+            {icon}
+          </span>
+          <h2 className="text-[20px] font-bold leading-[1.15] tracking-[-0.02em] text-theme-cardFg">
+            {title}
+          </h2>
+        </span>
         <p className="max-w-[27ch] text-pretty text-[13px] leading-[1.55] text-theme-cardDesc">{desc}</p>
       </span>
 

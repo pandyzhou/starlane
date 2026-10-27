@@ -1,5 +1,4 @@
 import React from 'react';
-import { Activity, Binary, BookOpen, Crosshair, NotebookPen, Pencil, Server } from 'lucide-react';
 import { Clock } from './components/Clock';
 import { SearchBar } from './components/SearchBar';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
@@ -87,7 +86,7 @@ export const App: React.FC = () => {
         <div className="grid w-full max-w-5xl grid-cols-1 gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(212px,1fr))]">
           <GradientCard
             href="https://excalidraw.com"
-            icon={<Pencil />}
+            icon={<img src="./icons/excalidraw.png" alt="" className="h-7 w-7" />}
             title="Excalidraw"
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
@@ -96,7 +95,7 @@ export const App: React.FC = () => {
           />
           <GradientCard
             href="https://www.luogu.com.cn/"
-            icon={<Binary />}
+            icon={<img src="./icons/luogu.png" alt="" className="h-7 w-7" />}
             title="洛谷"
             desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
             domain="luogu.com.cn"
@@ -105,7 +104,7 @@ export const App: React.FC = () => {
           />
           <GradientCard
             href="https://blog.blockcorner.top"
-            icon={<NotebookPen />}
+            icon={<img src="./icons/blog.png" alt="" className="h-7 w-7" />}
             title="博客"
             desc="个人博客，记录开发笔记、踩坑过程与一些零散的折腾。"
             domain="blog.blockcorner.top"
@@ -114,7 +113,7 @@ export const App: React.FC = () => {
           />
           <GradientCard
             href="https://komari.zhouyihub.com"
-            icon={<Activity />}
+            icon={<img src="./icons/komari.png" alt="" className="h-7 w-7" />}
             title="Komari"
             desc="服务器状态监控面板，查看节点负载、流量与在线情况。"
             domain="komari.zhouyihub.com"
@@ -123,7 +122,7 @@ export const App: React.FC = () => {
           />
           <GradientCard
             href="https://www.eftarkov.com"
-            icon={<Crosshair />}
+            icon={<img src="./icons/eftarkov.png" alt="" className="h-7 w-7" />}
             title="EFTarkov"
             desc="《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。"
             domain="eftarkov.com"
@@ -132,7 +131,7 @@ export const App: React.FC = () => {
           />
           <GradientCard
             href="https://oi-wiki.org/"
-            icon={<BookOpen />}
+            icon={<img src="./icons/oiwiki.png" alt="" className="h-7 w-7" />}
             title="OI Wiki"
             desc="算法竞赛知识库，从基础语法到高级算法的系统整理。"
             domain="oi-wiki.org"
@@ -141,7 +140,7 @@ export const App: React.FC = () => {
           />
           <GradientCard
             href="https://console.evoxt.com/dashboard.php"
-            icon={<Server />}
+            icon={<img src="./icons/evoxt.png" alt="" className="h-7 w-7" />}
             title="Evoxt"
             desc="VPS 云服务器控制台，管理实例、监控流量与账单。"
             domain="console.evoxt.com"
