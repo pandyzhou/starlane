@@ -92,6 +92,7 @@ export const App: React.FC = () => {
             desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
             domain="excalidraw.com"
             index="01"
+            accent="primary"
           />
           <GradientCard
             href="https://www.luogu.com.cn/"
@@ -100,6 +101,7 @@ export const App: React.FC = () => {
             desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
             domain="luogu.com.cn"
             index="02"
+            accent="secondary"
           />
           <GradientCard
             href="https://blog.blockcorner.top"
@@ -108,6 +110,7 @@ export const App: React.FC = () => {
             desc="个人博客，记录开发笔记、踩坑过程与一些零散的折腾。"
             domain="blog.blockcorner.top"
             index="03"
+            accent="accent"
           />
           <GradientCard
             href="https://komari.zhouyihub.com"
@@ -116,6 +119,7 @@ export const App: React.FC = () => {
             desc="服务器状态监控面板，查看节点负载、流量与在线情况。"
             domain="komari.zhouyihub.com"
             index="04"
+            accent="muted"
           />
           <GradientCard
             href="https://www.eftarkov.com"
@@ -124,6 +128,7 @@ export const App: React.FC = () => {
             desc="《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。"
             domain="eftarkov.com"
             index="05"
+            accent="primary"
           />
           <GradientCard
             href="https://oi-wiki.org/"
@@ -132,6 +137,7 @@ export const App: React.FC = () => {
             desc="算法竞赛知识库，从基础语法到高级算法的系统整理。"
             domain="oi-wiki.org"
             index="06"
+            accent="secondary"
           />
           <GradientCard
             href="https://console.evoxt.com/dashboard.php"
@@ -140,6 +146,7 @@ export const App: React.FC = () => {
             desc="VPS 云服务器控制台，管理实例、监控流量与账单。"
             domain="console.evoxt.com"
             index="07"
+            accent="accent"
           />
         </div>
       </main>
