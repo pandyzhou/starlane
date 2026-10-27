@@ -140,6 +140,14 @@ export const App: React.FC = () => {
             domain="console.evoxt.com"
             index="07"
           />
+          <GradientCard
+            href="https://digvps.com"
+            icon={<img src="./icons/digvps.png" alt="" className="h-7 w-7" />}
+            title="DigVPS"
+            desc="VPS 评测与优惠信息站，汇总各家服务商的套餐与性能测试。"
+            domain="digvps.com"
+            index="08"
+          />
         </div>
       </main>
 
