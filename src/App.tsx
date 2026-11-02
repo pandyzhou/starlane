@@ -60,7 +60,7 @@ const TencentCloudIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h
 
 const DOCK_ITEMS = [
   { link: 'https://github.com/pandyzhou', Icon: <GithubIcon />, bg: 'bg-[#181717]', label: 'GitHub' },
-  { link: 'https://t.me', Icon: <TelegramIcon />, bg: 'bg-[#26A5E4]', label: 'Telegram' },
+  { link: 'https://web.telegram.org/a/', Icon: <TelegramIcon />, bg: 'bg-[#26A5E4]', label: 'Telegram' },
   { link: 'https://www.douyin.com/', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
   { link: 'https://home.console.aliyun.com/home/dashboard/ProductAndService', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
   { link: 'https://console.cloud.tencent.com', Icon: <TencentCloudIcon />, bg: 'bg-[#0052d9]', label: '腾讯云' },
