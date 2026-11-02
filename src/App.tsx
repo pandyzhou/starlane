@@ -67,9 +67,49 @@ const DOCK_ITEMS = [
   { link: 'https://linux.do', Icon: <img src="./icons/linuxdo.svg" alt="" className="h-5 w-5" />, bg: 'bg-[#1c1c1e]', label: 'LINUX DO' },
 ];
 
+
+/** 卡片区的滚轮滚动带缓动，滚动距离越大越平滑；触摸板与触屏走原生行为。 */
+const useSmoothWheel = (ref: React.RefObject<HTMLElement | null>) => {
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let target = el.scrollTop;
+    let raf = 0;
+
+    const step = () => {
+      const diff = target - el.scrollTop;
+      if (Math.abs(diff) < 0.5) {
+        el.scrollTop = target;
+        raf = 0;
+        return;
+      }
+      el.scrollTop += diff * 0.14;
+      raf = requestAnimationFrame(step);
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      const max = el.scrollHeight - el.clientHeight;
+      if (max < 4) return;
+      e.preventDefault();
+      target = Math.max(0, Math.min(max, target + e.deltaY));
+      if (!raf) raf = requestAnimationFrame(step);
+    };
+
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => {
+      el.removeEventListener('wheel', onWheel);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [ref]);
+};
+
 export const App: React.FC = () => {
+  const mainRef = React.useRef<HTMLElement>(null);
+  useSmoothWheel(mainRef);
+
   return (
-    <div className="min-h-screen bg-theme-bg text-theme-fg antialiased relative flex flex-col justify-between selection:bg-theme-primary/30 selection:text-theme-primary">
+    <div className="h-screen overflow-hidden bg-theme-bg text-theme-fg antialiased relative flex flex-col selection:bg-theme-primary/30 selection:text-theme-primary">
       {/* 顶部氛围微光 */}
       <PatternBackground />
       <InspectOverlay />
@@ -81,10 +121,11 @@ export const App: React.FC = () => {
       </div>
 
       {/* 主工作区 */}
-      <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 pt-2 md:pt-3 pb-16 flex-1 flex flex-col items-center">
+      <main ref={mainRef} className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 pt-2 md:pt-3 flex-1 min-h-0 overflow-y-auto scroll-smooth">
+        <div className="flex flex-col items-center pb-28">
         <Clock />
         <SearchBar />
-        <div className="grid w-full max-w-5xl grid-cols-1 gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(190px,1fr))]">
+        <div className="grid w-full max-w-5xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           <GradientCard
             href="https://excalidraw.com"
             icon={<img src="./icons/excalidraw.png" alt="" className="h-7 w-7" />}
@@ -157,6 +198,7 @@ export const App: React.FC = () => {
             domain="n.zhouyihub.com"
             index="09"
           />
+        </div>
         </div>
       </main>
 
