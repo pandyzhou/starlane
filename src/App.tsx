@@ -64,6 +64,7 @@ const DOCK_ITEMS = [
   { link: 'https://www.douyin.com/', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
   { link: 'https://home.console.aliyun.com/home/dashboard/ProductAndService', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
   { link: 'https://console.cloud.tencent.com', Icon: <TencentCloudIcon />, bg: 'bg-[#0052d9]', label: '腾讯云' },
+  { link: 'https://linux.do', Icon: <img src="./icons/linuxdo.svg" alt="" className="h-5 w-5" />, bg: 'bg-[#1c1c1e]', label: 'LINUX DO' },
 ];
 
 export const App: React.FC = () => {
@@ -149,11 +150,11 @@ export const App: React.FC = () => {
             index="08"
           />
           <GradientCard
-            href="https://linux.do"
-            icon={<img src="./icons/linuxdo.svg" alt="" className="h-7 w-7" />}
-            title="LINUX DO"
-            desc="中文技术社区，讨论开发、运维、AI 与各种折腾。"
-            domain="linux.do"
+            href="https://n.zhouyihub.com/"
+            icon={<img src="./icons/narrafork.svg" alt="" className="h-7 w-7" />}
+            title="NarraFork"
+            desc="AI 驱动的协作编程环境，支持叙事分叉。"
+            domain="n.zhouyihub.com"
             index="09"
           />
         </div>
