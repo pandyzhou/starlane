@@ -83,7 +83,7 @@ export const App: React.FC = () => {
       <main className="relative z-10 w-full max-w-[96rem] mx-auto px-5 sm:px-8 pt-2 md:pt-3 pb-16 flex-1 flex flex-col items-center">
         <Clock />
         <SearchBar />
-        <div className="grid w-full max-w-5xl grid-cols-1 gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(212px,1fr))]">
+        <div className="grid w-full max-w-5xl grid-cols-1 gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(190px,1fr))]">
           <GradientCard
             href="https://excalidraw.com"
             icon={<img src="./icons/excalidraw.png" alt="" className="h-7 w-7" />}
@@ -147,6 +147,14 @@ export const App: React.FC = () => {
             desc="VPS 评测与优惠信息站，汇总各家服务商的套餐与性能测试。"
             domain="digvps.com"
             index="08"
+          />
+          <GradientCard
+            href="https://linux.do"
+            icon={<img src="./icons/linuxdo.svg" alt="" className="h-7 w-7" />}
+            title="LINUX DO"
+            desc="中文技术社区，讨论开发、运维、AI 与各种折腾。"
+            domain="linux.do"
+            index="09"
           />
         </div>
       </main>
