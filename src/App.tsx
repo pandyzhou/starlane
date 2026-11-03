@@ -109,7 +109,7 @@ export const App: React.FC = () => {
                 className="grid grid-flow-col grid-rows-2 gap-3"
               >
                 {CARDS.map((card) => (
-                  <div key={card.index} className="w-[260px]">
+                  <div key={card.index} className="w-[300px]">
                     <GradientCard
                       href={card.href}
                       icon={<img src={card.icon} alt="" className="h-7 w-7" />}
