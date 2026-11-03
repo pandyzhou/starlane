@@ -58,6 +58,18 @@ const TencentCloudIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h
   </svg>
 );
 
+const CARDS = [
+  { href: 'https://excalidraw.com', icon: './icons/excalidraw.png', title: 'Excalidraw', desc: '手绘风格的白板工具，支持离线使用、多人协作与导出。', domain: 'excalidraw.com', index: '01' },
+  { href: 'https://www.luogu.com.cn/', icon: './icons/luogu.png', title: '洛谷', desc: '算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。', domain: 'luogu.com.cn', index: '02' },
+  { href: 'https://blog.blockcorner.top', icon: './icons/blog.png', title: '博客', desc: '个人博客，记录开发笔记、踩坑过程与一些零散的折腾。', domain: 'blog.blockcorner.top', index: '03' },
+  { href: 'https://komari.zhouyihub.com', icon: './icons/komari.png', title: 'Komari', desc: '服务器状态监控面板，查看节点负载、流量与在线情况。', domain: 'komari.zhouyihub.com', index: '04' },
+  { href: 'https://www.eftarkov.com', icon: './icons/eftarkov.png', title: 'EFTarkov', desc: '《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。', domain: 'eftarkov.com', index: '05' },
+  { href: 'https://oi-wiki.org/', icon: './icons/oiwiki.png', title: 'OI Wiki', desc: '算法竞赛知识库，从基础语法到高级算法的系统整理。', domain: 'oi-wiki.org', index: '06' },
+  { href: 'https://console.evoxt.com/dashboard.php', icon: './icons/evoxt.png', title: 'Evoxt', desc: 'VPS 云服务器控制台，管理实例、监控流量与账单。', domain: 'console.evoxt.com', index: '07' },
+  { href: 'https://digvps.com', icon: './icons/digvps.png', title: 'DigVPS', desc: 'VPS 评测与优惠信息站，汇总各家服务商的套餐与性能测试。', domain: 'digvps.com', index: '08' },
+  { href: 'https://n.zhouyihub.com/', icon: './icons/narrafork.svg', title: 'NarraFork', desc: 'AI 驱动的协作编程环境，支持叙事分叉。', domain: 'n.zhouyihub.com', index: '09' },
+];
+
 const DOCK_ITEMS = [
   { link: 'https://github.com/pandyzhou', Icon: <GithubIcon />, bg: 'bg-[#181717]', label: 'GitHub' },
   { link: 'https://web.telegram.org/a/', Icon: <TelegramIcon />, bg: 'bg-[#26A5E4]', label: 'Telegram' },
@@ -68,47 +80,7 @@ const DOCK_ITEMS = [
 ];
 
 
-/** 卡片区的滚轮滚动带缓动，滚动距离越大越平滑；触摸板与触屏走原生行为。 */
-const useSmoothWheel = (ref: React.RefObject<HTMLElement | null>) => {
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    let target = el.scrollLeft;
-    let raf = 0;
-
-    const step = () => {
-      const diff = target - el.scrollLeft;
-      if (Math.abs(diff) < 0.5) {
-        el.scrollLeft = target;
-        raf = 0;
-        return;
-      }
-      el.scrollLeft += diff * 0.14;
-      raf = requestAnimationFrame(step);
-    };
-
-    const onWheel = (e: WheelEvent) => {
-      const max = el.scrollWidth - el.clientWidth;
-      if (max < 4) return;
-      e.preventDefault();
-      // 纵向滚轮驱动横向位移；横向手势本来就是横的，保持原生
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      target = Math.max(0, Math.min(max, target + delta));
-      if (!raf) raf = requestAnimationFrame(step);
-    };
-
-    el.addEventListener('wheel', onWheel, { passive: false });
-    return () => {
-      el.removeEventListener('wheel', onWheel);
-      if (raf) cancelAnimationFrame(raf);
-    };
-  }, [ref]);
-};
-
 export const App: React.FC = () => {
-  const cardsRef = React.useRef<HTMLDivElement>(null);
-  useSmoothWheel(cardsRef);
 
   return (
     <div className="h-screen overflow-hidden bg-theme-bg text-theme-fg antialiased relative flex flex-col selection:bg-theme-primary/30 selection:text-theme-primary">
@@ -127,96 +99,29 @@ export const App: React.FC = () => {
         <div className="flex flex-col items-center pb-28">
         <Clock />
         <SearchBar />
-        <div ref={cardsRef} className="flex w-full gap-3 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://excalidraw.com"
-              icon={<img src="./icons/excalidraw.png" alt="" className="h-7 w-7" />}
-              title="Excalidraw"
-              desc="手绘风格的白板工具，支持离线使用、多人协作与导出。"
-              domain="excalidraw.com"
-              index="01"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://www.luogu.com.cn/"
-              icon={<img src="./icons/luogu.png" alt="" className="h-7 w-7" />}
-              title="洛谷"
-              desc="算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。"
-              domain="luogu.com.cn"
-              index="02"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://blog.blockcorner.top"
-              icon={<img src="./icons/blog.png" alt="" className="h-7 w-7" />}
-              title="博客"
-              desc="个人博客，记录开发笔记、踩坑过程与一些零散的折腾。"
-              domain="blog.blockcorner.top"
-              index="03"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://komari.zhouyihub.com"
-              icon={<img src="./icons/komari.png" alt="" className="h-7 w-7" />}
-              title="Komari"
-              desc="服务器状态监控面板，查看节点负载、流量与在线情况。"
-              domain="komari.zhouyihub.com"
-              index="04"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://www.eftarkov.com"
-              icon={<img src="./icons/eftarkov.png" alt="" className="h-7 w-7" />}
-              title="EFTarkov"
-              desc="《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。"
-              domain="eftarkov.com"
-              index="05"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://oi-wiki.org/"
-              icon={<img src="./icons/oiwiki.png" alt="" className="h-7 w-7" />}
-              title="OI Wiki"
-              desc="算法竞赛知识库，从基础语法到高级算法的系统整理。"
-              domain="oi-wiki.org"
-              index="06"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://console.evoxt.com/dashboard.php"
-              icon={<img src="./icons/evoxt.png" alt="" className="h-7 w-7" />}
-              title="Evoxt"
-              desc="VPS 云服务器控制台，管理实例、监控流量与账单。"
-              domain="console.evoxt.com"
-              index="07"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://digvps.com"
-              icon={<img src="./icons/digvps.png" alt="" className="h-7 w-7" />}
-              title="DigVPS"
-              desc="VPS 评测与优惠信息站，汇总各家服务商的套餐与性能测试。"
-              domain="digvps.com"
-              index="08"
-            />
-          </div>
-          <div className="w-[260px] shrink-0">
-          <GradientCard
-              href="https://n.zhouyihub.com/"
-              icon={<img src="./icons/narrafork.svg" alt="" className="h-7 w-7" />}
-              title="NarraFork"
-              desc="AI 驱动的协作编程环境，支持叙事分叉。"
-              domain="n.zhouyihub.com"
-              index="09"
-            />
+        {/* 两行卡片，整行缓慢左移；内容复制一份以实现无缝衔接 */}
+        <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          <div className="flex w-max gap-3 animate-[marquee-x_60s_linear_infinite] hover:[animation-play-state:paused]">
+            {[0, 1].map((copy) => (
+              <div
+                key={copy}
+                aria-hidden={copy === 1}
+                className="grid grid-flow-col grid-rows-2 gap-3"
+              >
+                {CARDS.map((card) => (
+                  <div key={card.index} className="w-[260px]">
+                    <GradientCard
+                      href={card.href}
+                      icon={<img src={card.icon} alt="" className="h-7 w-7" />}
+                      title={card.title}
+                      desc={card.desc}
+                      domain={card.domain}
+                      index={card.index}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
         </div>
