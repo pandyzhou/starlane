@@ -58,16 +58,26 @@ const TencentCloudIcon: React.FC<{ className?: string }> = ({ className = 'w-5 h
   </svg>
 );
 
+import excalidrawIcon from './assets/icons/excalidraw.png?inline';
+import luoguIcon from './assets/icons/luogu.png?inline';
+import blogIcon from './assets/icons/blog.png?inline';
+import komariIcon from './assets/icons/komari.png?inline';
+import eftarkovIcon from './assets/icons/eftarkov.png?inline';
+import oiwikiIcon from './assets/icons/oiwiki.png?inline';
+import evoxtIcon from './assets/icons/evoxt.png?inline';
+import digvpsIcon from './assets/icons/digvps.png?inline';
+import narraforkIcon from './assets/icons/narrafork.svg?inline';
+
 const CARDS = [
-  { href: 'https://excalidraw.com', icon: './icons/excalidraw.png', title: 'Excalidraw', desc: '手绘风格的白板工具，支持离线使用、多人协作与导出。', domain: 'excalidraw.com', index: '01' },
-  { href: 'https://www.luogu.com.cn/', icon: './icons/luogu.png', title: '洛谷', desc: '算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。', domain: 'luogu.com.cn', index: '02' },
-  { href: 'https://blog.blockcorner.top', icon: './icons/blog.png', title: '博客', desc: '个人博客，记录开发笔记、踩坑过程与一些零散的折腾。', domain: 'blog.blockcorner.top', index: '03' },
-  { href: 'https://komari.zhouyihub.com', icon: './icons/komari.png', title: 'Komari', desc: '服务器状态监控面板，查看节点负载、流量与在线情况。', domain: 'komari.zhouyihub.com', index: '04' },
-  { href: 'https://www.eftarkov.com', icon: './icons/eftarkov.png', title: 'EFTarkov', desc: '《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。', domain: 'eftarkov.com', index: '05' },
-  { href: 'https://oi-wiki.org/', icon: './icons/oiwiki.png', title: 'OI Wiki', desc: '算法竞赛知识库，从基础语法到高级算法的系统整理。', domain: 'oi-wiki.org', index: '06' },
-  { href: 'https://console.evoxt.com/dashboard.php', icon: './icons/evoxt.png', title: 'Evoxt', desc: 'VPS 云服务器控制台，管理实例、监控流量与账单。', domain: 'console.evoxt.com', index: '07' },
-  { href: 'https://digvps.com', icon: './icons/digvps.png', title: 'DigVPS', desc: 'VPS 评测与优惠信息站，汇总各家服务商的套餐与性能测试。', domain: 'digvps.com', index: '08' },
-  { href: 'https://n.zhouyihub.com/', icon: './icons/narrafork.svg', title: 'NarraFork', desc: 'AI 驱动的协作编程环境，支持叙事分叉。', domain: 'n.zhouyihub.com', index: '09' },
+  { href: 'https://excalidraw.com', icon: excalidrawIcon, title: 'Excalidraw', desc: '手绘风格的白板工具，支持离线使用、多人协作与导出。', domain: 'excalidraw.com', index: '01' },
+  { href: 'https://www.luogu.com.cn/', icon: luoguIcon, title: '洛谷', desc: '算法竞赛题库与题解社区，覆盖从入门到省选的训练路径。', domain: 'luogu.com.cn', index: '02' },
+  { href: 'https://blog.blockcorner.top', icon: blogIcon, title: '博客', desc: '个人博客，记录开发笔记、踩坑过程与一些零散的折腾。', domain: 'blog.blockcorner.top', index: '03' },
+  { href: 'https://komari.zhouyihub.com', icon: komariIcon, title: 'Komari', desc: '服务器状态监控面板，查看节点负载、流量与在线情况。', domain: 'komari.zhouyihub.com', index: '04' },
+  { href: 'https://www.eftarkov.com', icon: eftarkovIcon, title: 'EFTarkov', desc: '《逃离塔科夫》的资料与数据查询站，枪械、弹药、地图一应俱全。', domain: 'eftarkov.com', index: '05' },
+  { href: 'https://oi-wiki.org/', icon: oiwikiIcon, title: 'OI Wiki', desc: '算法竞赛知识库，从基础语法到高级算法的系统整理。', domain: 'oi-wiki.org', index: '06' },
+  { href: 'https://console.evoxt.com/dashboard.php', icon: evoxtIcon, title: 'Evoxt', desc: 'VPS 云服务器控制台，管理实例、监控流量与账单。', domain: 'console.evoxt.com', index: '07' },
+  { href: 'https://digvps.com', icon: digvpsIcon, title: 'DigVPS', desc: 'VPS 评测与优惠信息站，汇总各家服务商的套餐与性能测试。', domain: 'digvps.com', index: '08' },
+  { href: 'https://n.zhouyihub.com/', icon: narraforkIcon, title: 'NarraFork', desc: 'AI 驱动的协作编程环境，支持叙事分叉。', domain: 'n.zhouyihub.com', index: '09' },
 ];
 
 const DOCK_ITEMS = [
@@ -76,7 +86,7 @@ const DOCK_ITEMS = [
   { link: 'https://www.douyin.com/', Icon: <DouyinIcon />, bg: 'bg-[#000000]', label: '抖音' },
   { link: 'https://home.console.aliyun.com/home/dashboard/ProductAndService', Icon: <AliyunIcon />, bg: 'bg-[#ff6a00]', label: '阿里云' },
   { link: 'https://console.cloud.tencent.com', Icon: <TencentCloudIcon />, bg: 'bg-[#0052d9]', label: '腾讯云' },
-  { link: 'https://linux.do', Icon: <img src="./icons/linuxdo.svg" alt="" className="h-5 w-5" />, bg: 'bg-[#1c1c1e]', label: 'LINUX DO' },
+  { link: 'https://linux.do', Icon: <img src="./icons/linuxdo.svg" alt="" className="h-6 w-6" />, bg: 'bg-[#1c1c1e]', label: 'LINUX DO' },
 ];
 
 
