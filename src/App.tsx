@@ -90,7 +90,62 @@ const DOCK_ITEMS = [
 ];
 
 
+
+/** 卡片行自动向左漂移，悬停暂停；滚轮（纵向或横向）都能手动推进。 */
+const useAutoScroll = (ref: React.RefObject<HTMLDivElement | null>, speed = 0.4) => {
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    let raf = 0;
+    let paused = false;
+    // scrollLeft 会被取整，直接 += 0.4 永远停在原地，必须自己累计小数
+    let pos = el.scrollLeft;
+
+    const apply = () => {
+      el.scrollLeft = pos;
+    };
+
+    const step = () => {
+      if (!paused) {
+        pos += speed;
+        const half = el.scrollWidth / 2;
+        if (half > 0 && pos >= half) pos -= half;
+        apply();
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+
+    const pause = () => { paused = true; };
+    const resume = () => {
+      pos = el.scrollLeft;
+      paused = false;
+    };
+    const onWheel = (e: WheelEvent) => {
+      const max = el.scrollWidth - el.clientWidth;
+      if (max < 4) return;
+      e.preventDefault();
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      pos = Math.max(0, Math.min(max, pos + delta));
+      apply();
+    };
+
+    el.addEventListener('mouseenter', pause);
+    el.addEventListener('mouseleave', resume);
+    el.addEventListener('wheel', onWheel, { passive: false });
+    return () => {
+      cancelAnimationFrame(raf);
+      el.removeEventListener('mouseenter', pause);
+      el.removeEventListener('mouseleave', resume);
+      el.removeEventListener('wheel', onWheel);
+    };
+  }, [ref, speed]);
+};
+
 export const App: React.FC = () => {
+  const trackRef = React.useRef<HTMLDivElement>(null);
+  useAutoScroll(trackRef);
 
   return (
     <div className="h-screen overflow-hidden bg-theme-bg text-theme-fg antialiased relative flex flex-col selection:bg-theme-primary/30 selection:text-theme-primary">
@@ -110,8 +165,11 @@ export const App: React.FC = () => {
         <Clock />
         <SearchBar />
         {/* 两行卡片，整行缓慢左移；内容复制一份以实现无缝衔接 */}
-        <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
-          <div className="flex w-max gap-3 animate-[marquee-x_60s_linear_infinite] hover:[animation-play-state:paused]">
+        <div
+          ref={trackRef}
+          className="w-full overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]"
+        >
+          <div className="flex w-max gap-3">
             {[0, 1].map((copy) => (
               <div
                 key={copy}
