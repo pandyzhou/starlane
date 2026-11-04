@@ -140,9 +140,3 @@
 .tag-purple { color: var(--tag-purple-fg); background-color: var(--tag-purple-bg); border-color: var(--tag-purple-border); }
 .tag-pink { color: var(--tag-pink-fg); background-color: var(--tag-pink-bg); border-color: var(--tag-pink-border); }
 .tag-zinc { color: var(--tag-zinc-fg); background-color: var(--tag-zinc-bg); border-color: var(--tag-zinc-border); }
-
-/* 卡片两行整排缓慢左移，用于首屏的自动滚动 */
-@keyframes marquee-x {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
